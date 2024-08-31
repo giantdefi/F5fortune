@@ -66,7 +66,7 @@ export default function Refferals() {
         })
             .then(async response => {
 
-                console.log(response.data)
+             //   console.log(response.data)
 
                 if (response.data.isSuccess) {
 
@@ -140,8 +140,8 @@ export default function Refferals() {
        await  loadData(userid)
     }
 
-    console.log(getUsername)
-    console.log(userid)
+    // console.log(getUsername)
+    // console.log(userid)
     return (
         <>
 
