@@ -97,7 +97,7 @@ export default function SidebarBody() {
                 <>
                   <div className="flex flex-col">
                   
-                    <p className="ml-2 tracking-wide truncate text-sm"><i className="icofont-gear text-red-300 text-xl"></i>  PACKAGES</p>
+                    <p className="ml-2 tracking-wide truncate text-sm"><i className="icofont-certificate-alt-1 text-red-300 text-xl"></i>  PACKAGES</p>
                     {/* <p className="ml-2 tracking-wide truncate text-xs">Network & Breeding</p> */}
                   </div>
                   <div className="mr-4">
@@ -116,7 +116,7 @@ export default function SidebarBody() {
                 <a onClick={()=>router.push('/users/packages')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 1 && dropdownOpen === 1 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                    <i className="icofont-chart-flow-1 text-lg mr-1 text-yellow-300 hover:text-green-300 "></i> <span className='ml-4'>Packages</span></p>
+                    <i className="icofont-id-card  text-2xl  text-yellow-300 hover:text-green-300 "></i> <span className='ml-4'>Packages</span></p>
                 </a>
               </li>
 
@@ -124,11 +124,18 @@ export default function SidebarBody() {
                 <a onClick={()=>router.push('/users/my-packages')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 2 && dropdownOpen === 1 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                    <i className="icofont-cat-dog text-4xl mr-1 text-yellow-300 hover:text-green-300"></i> My Packages</p>
+                  <i className="icofont-chart-growth text-2xl mr-4 text-yellow-300"></i> My Packages</p>
                 </a>
               </li>
 
             
+              <li className="cursor-pointer hover:text-green-300">
+                <a onClick={()=>router.push('/users/referrals')} className={` flex flex-row items-center h-10  pl-6 
+                    ${itemSelected === 2 && dropdownOpen === 1 && 'bg-white bg-opacity-10'}`}>
+                  <p className="text-sm ">
+                  <i className="icofont-chart-flow text-2xl mr-4 text-yellow-300"></i> My Referrals</p>
+                </a>
+              </li>
 
                     
 
@@ -168,28 +175,28 @@ export default function SidebarBody() {
                 <a onClick={()=>router.push('/users/deposit')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 3 && dropdownOpen === 2 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                    <i className="icofont-cat-alt-2 text-lg mr-1 text-yellow-300 hover:text-green-300"></i> Deposit Wallet</p>
+                    <i className="icofont-arrow-right text-yellow-400"></i> Deposit Wallet</p>
                 </a>
               </li>
               <li className="cursor-pointer hover:text-green-300">
                 <a onClick={()=>router.push('/users/history-deposit')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 3 && dropdownOpen === 2 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                    <i className="icofont-cat-alt-2 text-lg mr-1 text-yellow-300 hover:text-green-300"></i> History Deposit Wallet</p>
+                    <i className="icofont-arrow-right text-yellow-400"></i> History Deposit Wallet</p>
                 </a>
               </li>
               <li className="cursor-pointer hover:text-green-300">
                 <a onClick={()=>router.push('/users/wd-request')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 4 && dropdownOpen === 2 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                    <i className="icofont-paper-plane text-lg mr-1 text-yellow-300 hover:text-green-300"></i> WD Request</p>
+                  <i className="icofont-arrow-right text-yellow-400"></i> WD Request</p>
                 </a>
               </li>
               <li className="cursor-pointer hover:text-green-300">
                 <a onClick={()=>router.push('/users/history-wd-request')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 4 && dropdownOpen === 2 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                    <i className="icofont-paper-plane text-lg mr-1 text-yellow-300 hover:text-green-300"></i> History WD Request</p>
+                  <i className="icofont-arrow-right text-yellow-400"></i> History WD Request</p>
                 </a>
               </li>
             </ul>
