@@ -1,0 +1,45 @@
+{
+  "name": "next-mobi",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "metamask-react": "^2.4.0",
+    "moment": "^2.29.3",
+    "moment-timezone": "^0.5.34",
+    "next": "12.1.5",
+    "react": "18.0.0",
+    "react-circular-progressbar": "^2.1.0",
+    "react-clock": "^3.1.0",
+    "react-confetti": "^6.1.0",
+    "react-dom": "18.0.0",
+    "react-easy-crop": "^4.5.0",
+    "react-live-clock": "^6.1.23-beta",
+    "react-moment": "^1.1.2",
+    "react-redux": "^8.0.0",
+    "react-select": "^5.8.0",
+    "react-select-country-list": "^2.2.3",
+    "react-sticky-box": "^1.0.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
+    "sass": "^1.54.4",
+    "swiper": "^8.4.3",
+    "web3": "^1.8.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.5",
+    "eslint": "8.13.0",
+    "eslint-config-next": "12.1.5",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.24"
+  }
+}

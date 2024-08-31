@@ -1,0 +1,3 @@
+.categories {
+    @apply m-3 border  flex flex-col items-center justify-center text-center 
+  }

@@ -1,0 +1,492 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl sm:text-3xl md:text-4xl 
+  }
+  h2 {
+    @apply text-3xl  sm:text-2xl md:text-3xl 
+  }
+  h3 {
+    @apply  text-2xl
+  }
+  h4 {
+    @apply  text-xl
+  }
+  h5 {
+    @apply  text-lg
+  }
+  h6 {
+    @apply  text-sm
+  }
+  
+}
+
+p {
+    @apply leading-6
+  }
+
+
+button,
+a{
+ -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ -webkit-tap-highlight-color: transparent;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+  user-select: none;
+
+} 
+
+ .no-bg { 
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ -webkit-tap-highlight-color: transparent;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+  user-select: none;
+  } 
+
+  .menu_1 {
+    @apply flex flex-col items-center justify-center w-1/3  h-[110px] w-[110px] rounded-full
+    bg-gradient-to-r from-gray-600 to-gray-900 
+   border-4  border-yellow-500 
+    shadow-lg  shadow-gray-800
+    cursor-pointer
+     mb-2 p-1  
+  }
+
+  .menu_1x {
+    @apply flex flex-col items-center justify-center w-1/3  h-24
+    bg-gradient-to-r from-gray-700 to-gray-900 rounded-2xl
+    border-yellow-700 border-4 shadow-md  cursor-pointer mb-2 p-1  transition ease-in duration-300
+  }
+
+  .main_menu_mobile { 
+    @apply flex flex-col items-center justify-center w-1/3  h-24 bg-gradient-to-r from-slate-900 to-slate-600 rounded-xl 
+    border-4 border-slate-600  cursor-pointer mb-2 p-1
+    }
+
+  .main_menu_open {
+    @apply fixed flex flex-col top-14 left-0 w-64 bg-[#051e34ff] h-full text-white transition-all duration-300  border-none z-10 
+  }
+
+  .main_menu_close {
+    @apply fixed flex flex-col top-14 left-0 w-14  bg-[#051e34ff] h-full text-white transition-all duration-300 border-none z-10 
+  }
+
+._overlay { 
+  @apply  fixed mx-auto px-0  inset-0  overflow-hidden flex justify-center items-center bg-opacity-80 bg-gray-900 z-[110]
+  }
+
+.flex-between {
+  @apply flex justify-between 
+}
+
+.centered {
+  @apply justify-center items-center
+}
+
+.list_content {
+  @apply bg-slate-900 flex justify-around border border-gray-500 py-2 cursor-pointer
+}
+
+
+
+  .main_menu_mobile_dahsed { 
+    @apply flex flex-col items-center justify-center w-full  h-14 bg-red-900  rounded-xl 
+    border-2 border-yellow-600   cursor-pointer mb-2 p-1
+    }
+
+    .main_menu_mobile_user { 
+      @apply flex flex-col items-center justify-center w-1/2  h-24 bg-gray-700 
+      border-4 border-gray-600  cursor-pointer mb-2 p-1
+      }
+
+      .main_menu_mobile_transaction { 
+        @apply flex flex-col items-center justify-center w-1/2  h-14 bg-gray-800 
+        border-4 border-gray-600  cursor-pointer mb-2 p-1
+        }
+
+  .btn_menu_user { 
+    @apply flex flex-col items-center justify-center bg-gray-800   
+    border-2 border-gray-600 rounded-xl cursor-pointer mb-2    flex justify-center items-center p-2  
+    }
+
+    .btn_menu_user_single { 
+      @apply flex flex-col items-center justify-center  bg-gradient-to-tr from-slate-900 to-slate-600  rounded-xl 
+      border-2 border-slate-600  cursor-pointer mb-2  w-1/2 h-[100px]  flex justify-center items-center p-2  rounded-xl
+      }
+
+    .btn_menu_user_required { 
+      @apply flex flex-col items-center justify-center  bg-gradient-to-tr from-slate-900 to-slate-600  rounded-xl 
+      border-2 border-yellow-600 border-dashed  cursor-pointer mb-2  w-1/3 h-[80px]  flex justify-center items-center p-2  rounded-xl
+      }
+
+      .btn_menu_stockist { 
+        @apply flex flex-col items-center justify-center  bg-gradient-to-tr from-slate-900 to-slate-600  rounded-xl 
+        border-4 border-slate-600  cursor-pointer mb-2  w-1/3 h-[80px]  flex justify-center items-center p-2  rounded-xl
+        }
+
+.btn_package { 
+    @apply _gradient_slate w-full text-left pl-6 py-5 border-2 border-green-700  py-5 mt-5 rounded-xl hover:bg-red-500
+  }
+
+  .btn_package_selected { 
+    @apply _gradient_slate w-full text-left pl-6 py-5 border-2 border-dashed border-yellow-300  py-5 mt-5 rounded-xl
+  }
+
+  .btn_package1 { 
+    @apply _gradient_gold w-full text-left pl-6 py-5 border border-gray-700 shadow-sm shadow-gray-300 py-5 mt-5 rounded-r-full
+  }
+
+  .btn_package_selected1 { 
+    @apply _gradient_gold w-full text-left pl-6 py-5 border-2 border-dashed border-gray-300  py-5 mt-5 rounded-r-full
+  }
+  
+
+._modal { 
+  @apply  fixed w-full inset-0  overflow-hidden flex justify-center items-center
+  }
+
+._modal_full { 
+  @apply w-full min-h-screen 
+  }
+  
+
+
+._modal_user_join { 
+@apply fixed w-full  bottom-[20px]  flex justify-start items-center bg-opacity-5  z-[110]
+}
+
+._modal_wallet { 
+@apply  fixed w-full inset-0   overflow-hidden flex justify-center items-center bg-opacity-10 bg-gray-500 z-[110]
+}
+._modal_wallet_box {
+@apply border-white  right-40 border-4 shadow-2xl bg-white  mx-auto rounded-3xl z-50 overflow-y-auto w-96
+}
+._crypto-balance-wrapper {
+@apply flex items-center p-1 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
+}
+._cypto-balance {
+@apply inline-flex items-center justify-center px-2 ml-3 text-sm font-bold text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300
+}
+
+      
+._gradient_blue {
+  @apply bg-gradient-to-tr from-green-700 to-slate-900
+}
+
+._gradient_gray {
+  @apply bg-gradient-to-tr from-gray-200 to-gray-300
+}
+
+._gradient_yellow {
+  @apply bg-gradient-to-tr from-yellow-400 to-yellow-500
+}
+
+
+
+._gradient_car {
+  @apply bg-gradient-to-tr from-gray-700 to-gray-900
+}
+
+._gradient_black {
+  @apply bg-gradient-to-tr from-black to-gray-900
+}
+
+._gradient_blue_1 {
+  @apply bg-gradient-to-tr from-blue-900 to-gray-900
+}
+
+._gradient_orange {
+  @apply bg-gradient-to-tr from-orange-600 to-orange-900
+}
+
+._gradient_waring_orange {
+  @apply bg-gradient-to-tr from-yellow-700 to-yellow-900
+}
+
+._gradient_red {
+  @apply bg-gradient-to-tr from-red-700 to-red-900
+}
+
+._gradient_puple { 
+  @apply bg-gradient-to-tr from-fuchsia-700 to-fuchsia-900
+}
+
+._gradient_purple {
+  @apply bg-gradient-to-tr from-purple-900 to-red-900
+}
+
+._gradient_progress {
+  @apply bg-gradient-to-tr from-orange-600 to-orange-900
+}
+
+._gradient_slate {
+  @apply bg-gradient-to-tr from-slate-900 to-slate-600 
+}
+
+
+
+._gradient_wallet {
+  @apply   bg-slate-800  items-center py-2  p-2 border border-dotted border-yellow-600 text-gray-50 
+  flex justify-start items-center
+}
+
+._gradient_wallet_epin {
+  @apply   bg-purple-900  items-center py-2  p-2 border  border-yellow-600 text-gray-50 
+  flex justify-start items-center
+}
+
+._gradient_mtree {
+  @apply bg-gradient-to-tr from-slate-800 to-gray-900 
+}
+
+._btn_next {
+  @apply bg-gradient-to-tr from-red-900 to-slate-600 rounded-r-full py-2 px-4
+}
+
+._gradient_green {
+  @apply bg-gradient-to-tr from-green-900 to-green-700 
+}
+
+._gradient_green_1 {
+  @apply bg-gradient-to-t from-green-700 to-green-900 
+}
+
+._gradient_red_1 {
+  @apply bg-gradient-to-l from-yellow-800 via-purple-900 to-green-900
+}
+
+._gradient_red_2 {
+  @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500
+}
+
+._gradient_goldZ { 
+  @apply  bg-gradient-to-r from-red-900 to-black 
+  }
+
+  ._gradient_gold {
+    background: linear-gradient(30deg, #4d0000 0%, #000 100%) !important
+  }
+  ._gradient_yellow {
+    background: linear-gradient(30deg, #707c03 0%, #4e4d05 100%) !important
+  }
+
+  ._gradient_green {
+    background: linear-gradient(30deg, #397418 0%, #031d0f 100%) !important
+  }
+
+  ._gradient_new_binary { 
+    @apply  bg-gradient-to-tr from-slate-800 to-slate-600  cursor-pointer flex flex-col px-4 border-2 border-gray-700 rounded-xl text-gray-100
+    }
+
+  .react-clock__face {
+    @apply shadow-white drop-shadow-2xl
+  }
+
+.calculator-package {
+  @apply w-1/4 py-2 border-gray-500 border-2 cursor-pointer rounded-lg 
+}
+
+.calculator-level {
+  @apply  border-2 text-lg text-white border-gray-500 py-2 px-6 cursor-pointer rounded-lg 
+}
+
+._keyboard {
+  @apply _gradient_slate  border-2 border-gray-500 text-lg text-white py-2  cursor-pointer rounded-lg 
+}
+
+._keyboard_delete {
+  @apply _gradient_red text-center border-2 border-gray-500 text-lg text-white py-2  cursor-pointer rounded-lg 
+}
+
+.bold {
+  @apply font-bold
+}
+.slidebar_link {
+  @apply w-full relative flex flex-row items-center h-9 focus:outline-none  
+  border-l-4 border-transparent hover:border-blue-500  pr-6
+}
+
+
+
+
+.boorder-mtree-line {
+  @apply border-gray-400 
+}
+
+.boorder-mtree {
+  @apply border-yellow-500  border-[3px]
+}
+
+._gradient_user {
+  @apply bg-gradient-to-tr from-slate-400 to-slate-600 
+}
+
+.mtree_user_new {
+  @apply flex flex-col justify-center items-center cursor-pointer border-yellow-400  border-4 border-dotted  _gradient_user rounded-full
+}
+
+.mtree_user_lv_1 {
+  @apply flex flex-col justify-center items-center boorder-mtree rounded-full w-[80px] h-[80px]  _gradient_user
+}
+
+.mtree_user_lv_1_new {
+  @apply flex flex-col justify-center items-center border-2 border-white border-dotted animate-pulse  rounded-full w-[80px] h-[80px]
+}
+
+.mtree_user_lv_2 {
+  @apply flex flex-col justify-center items-center boorder-mtree rounded-full w-[80px] h-[80px] _gradient_user
+}
+
+.mtree_user_lv_2_new {
+  @apply flex flex-col justify-center items-center  border-[3px] border-dotted border-yellow-400  animate-pulse 
+   rounded-full w-[75px] h-[75px] _gradient_user
+}
+
+.mtree_user_lv_3 {
+  @apply flex flex-col justify-center items-center _gradient_user  boorder-mtree rounded-full w-[68px] h-[68px]
+}
+
+.mtree_user_lv_3_new {
+  @apply flex flex-col justify-center items-center   border-2 border-dotted border-white animate-pulse  rounded-full w-[65px] h-[65px]
+}
+
+.slider:hover {
+  @apply bg-green-700 text-white text-2xl
+}
+
+.slider {
+  @apply bg-green-700  text-2xl
+}
+
+
+.animate-spin-logo {
+  animation: spin-logo 6s cubic-bezier(0.2, 0, 0.2, 1) infinite;
+  }
+  
+  @keyframes spin-logo {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .holo {
+    background: linear-gradient(270deg, #0000CD, #9932CC,  #ff9900);
+  background-size: 1200% 1200%;
+  -webkit-animation: Logo 4s ease infinite;
+  -moz-animation: Logo 4s ease infinite;
+  -o-animation: Logo 4s ease infinite;
+  animation: Logo 4s ease infinite;
+   
+  }
+
+  @-webkit-keyframes Logo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes Logo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes Logo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes Logo {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.emboss{
+ 
+  color:#6d6d6d; /*same as background colour*/
+  
+  letter-spacing:0.05em;
+ 
+  text-shadow: 1px 1px #ccc, -3px -1px #3d3d3d;
+  }
+  .main_bg {
+  background: radial-gradient(60.25% 73.6% at 14.86% 21.69%, #136165 0.82%, #0B3B48 30.73%, #072A36 64.58%, rgba(3, 21, 33, 1) 100%)
+  }
+
+  
+.hero__car {
+  width: 100%;
+  height: 120%;
+  position: absolute;
+  left: 0;
+  top: 15%;
+  overflow: hidden;
+}
+
+.hero__car img { 
+  
+  width:100%;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.hero__car .car-ray {
+  animation: rifaRounded 20s infinite linear;
+  z-index: -2;
+}
+
+.hero__car1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 15%;
+  overflow: hidden;
+}
+
+.hero__car1 img { 
+  
+  width:100%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+
+.hero__car1 .car-ray {
+  animation: rifaRounded 20s infinite linear;
+  z-index: -2;
+}
+
+@keyframes rifaRounded {
+    0% {
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
+        -ms-transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
+        -ms-transform: translate(-50%, -50%) rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
