@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     masterUser: 'FX10001', // for not login user to see m-tree
-    domain: 'https://manekifortune.com',
-    title: 'MANEKIFORTUNE',
-    desc: 'MANEKI COMMUNITY',
+    domain: 'https://fivefortunefx.com',
+    title: 'FIVEFORTUNE',
+    desc: 'FIVEFORTUNE COMMUNITY',
     currency: 'M-Poin',
     crypto: 'BUSD',
     width : false
