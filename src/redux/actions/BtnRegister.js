@@ -8,7 +8,7 @@ import { setModalMessage, setCofetty, setModalToast } from 'redux/reducers/Modal
 import { setError } from 'redux/reducers/ErrorReducer'
 import { setLoginSidebar } from 'redux/reducers/MainmenuReducer'
 import { setAllowReloadUsers } from 'redux/reducers/UsersReducer'
-import {  setIsLogin, setName, setWallet, setEmail, setToken, setSponsor, setIsActive, setIsAdmin, setAuthToken } from 'redux/reducers/AuthReducer'
+import {  setIsLogin,setUserid, setName, setWallet, setEmail, setToken, setSponsor, setIsActive, setIsAdmin, setAuthToken } from 'redux/reducers/AuthReducer'
 
 
 //--------------------------------------
@@ -111,6 +111,8 @@ console.log(data)
     
                     dispatch(setIsLogin(true))
                     dispatch(setToken(token))
+                    
+                    dispatch(setUserid(dataLogin.userid))
                     dispatch(setName(dataLogin.name))
                     dispatch(setIsActive(dataLogin.isActive))
                     dispatch(setIsAdmin(dataLogin.isAdmin))

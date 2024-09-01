@@ -13,7 +13,6 @@ import FirstName from 'components/inputforms/register/FirstName'
 import LastName from 'components/inputforms/register/LastName'
 import Password from 'components/inputforms/register/Password'
 import ConfirmPassword from 'components/inputforms/register/ConfirmPassword'
-import BtnLogin from 'redux/actions/BtnLogin'
 import BtnRegister from 'redux/actions/BtnRegister'
 //---- REDUX STORE ---------------------
 import { resetErrors } from 'redux/reducers/ErrorReducer'
