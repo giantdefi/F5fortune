@@ -104,11 +104,9 @@ export default function Users() {
 
           
 
-            <div className="flex justify-center  w-md items-center h-12 fixed top-[90px] md:top-[55px] md:right-0 z-10 bg-gray-900  ">
-            <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
+          
           <Wallet/>
-            </div>                 
-            </div>
+           
 
             <div className="flex flex-col justify-between items-center ">
             <h4 className="font-semibold  uppercase text-4xl mx-auto ">DEPOSIT REQUEST</h4>

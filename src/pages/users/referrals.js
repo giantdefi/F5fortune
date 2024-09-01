@@ -151,9 +151,11 @@ export default function Refferals() {
                 <meta name="description" content="Withdrawal" />
             </Head>
 
-            <div className="min-h-screen pb-40 px-2 animated fadeIn md:pt-40 text-white">
-            <div className="flex justify-center  max-w-md items-center h-12 fixed top-[90px] md:top-[55px] right-10 md:right-0 z-10 bg-gray-900 mr-4 ">
-            <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
+            <div className="min-h-screen pb-40 px-2  md:pt-40 text-white">
+          
+          
+            <div className="flex justify-center  max-w-md items-center h-12 fixed top-[90px] md:top-[55px]  md:right-0 z-10 bg-gray-900 mr-4 ">
+            <div className=" z-10 max-w-md centered flex flex-row  h-12 ">
           <Wallet/>
             </div>                 
             </div>

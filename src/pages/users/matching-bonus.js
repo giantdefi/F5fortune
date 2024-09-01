@@ -120,11 +120,9 @@ async function loadData(start=0, limit=100) {  // default start limit
 
             <div className="min-h-screen pb-40 px-2 animated fadeIn  pt-20 md:pt-40 text-white">
           
-            <div className="flex justify-center  w-md items-center h-12 fixed top-[90px] md:top-[55px] right-10 md:right-0 z-10 bg-gray-900  ">
-            <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
+          
           <Wallet/>
-            </div>                 
-            </div>
+           
                 <div className="flex flex-row justify-between items-center ">
             
                

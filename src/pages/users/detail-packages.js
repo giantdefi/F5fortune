@@ -148,11 +148,9 @@ export default function Users() {
 
             <div className="md:pt-12  min-h-screen">
 
-            <div className="flex justify-center  w-md items-center h-12 fixed top-[90px] md:top-[55px] md:right-0 z-10 bg-gray-900  ">
-            <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
+         
           <Wallet/>
-            </div>                 
-            </div>
+           
 
             {/* <div className="h-[300px] bg-sky-700 flex  fixed w-full max-w-md lg:max-w-full"> </div> */}
           

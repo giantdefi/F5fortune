@@ -106,14 +106,8 @@ export default function Users() {
             </Head>
 
             <div className="min-h-screen pb-40 px-2 animated fadeIn  pt-20 md:pt-40 text-white">
-
-          
-
-            <div className="flex justify-center  w-md items-center h-12 fixed top-[90px] md:top-[55px] md:right-0 z-10 bg-gray-900  ">
-            <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
           <Wallet/>
-            </div>                 
-            </div>
+         
 
             <div className="flex flex-row justify-between items-center ">
             <h4 className="font-semibold  uppercase text-4xl mx-auto ">WD REQUEST</h4>

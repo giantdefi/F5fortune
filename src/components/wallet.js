@@ -42,12 +42,14 @@ export default function Wallet() {
 
     return (
         <>
-
+ <div className="flex justify-center  items-center h-12 fixed top-[90px] md:top-[55px] right-0 z-10 bg-gray-900  ">
+ <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
         <div className="flex justify-end mr-5 mt-2 " > 
         <div className="flex centered animated text-white" ref={itemRef1}>  E Wallet : <img src="/assets/img/coin.png" className="ml-4" width="20" alt="dollar" /> <span className="text-lg font-semi-bold ml-1"> {parseFloat(e_wallet).toLocaleString()}</span></div>              
         <div className="flex centered animated text-white ml-6" ref={itemRef2}>  R Wallet : <img src="/assets/img/coin.png" className="ml-4" width="20" alt="dollar" /> <span className="text-lg font-semi-bold ml-1"> {parseFloat(r_wallet).toLocaleString()}</span></div>              
         </div>
-
+        </div>
+        </div>
         </>
     )
 }
