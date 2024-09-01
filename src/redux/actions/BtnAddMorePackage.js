@@ -56,6 +56,7 @@ export default function BtnActivateBinary() {
                     setSpinner(false)
                     dispatch(setRWallet(response.data.wallet.r_wallet))
                     dispatch(setModalConfirmBuyPackage(false))
+                    dispatch(setPlaySound('success'))
                  return   dispatch(setModalToast({ type: response.data.type, title: response.data.title, message: response.data.message }))
 
 
