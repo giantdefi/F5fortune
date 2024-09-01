@@ -18,8 +18,8 @@ export default function ReferralLink() {
 
     useEffect(() => { // referal sponsor from URL if any
    
-   console.log('------------------REF LINK LOADED ---------------')
-   console.log(ref)
+//    console.log('------------------REF LINK LOADED ---------------')
+//    console.log(ref)
 
         if (ref && ref.length <= 10) { //  && !refLink // the URL link and not yet exist
             CheckRefUserExist()
