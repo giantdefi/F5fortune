@@ -128,7 +128,7 @@ return (
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                   </svg>
             </button>
-            <ul  class={` py-2 space-y-2 animated fadeIn ${dropdownOpen === 3 ? '' : 'hidden'} `}>
+            <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 3 ? '' : 'hidden'} `}>
             <li>
                   <button onClick={()=>handleClickMenu('/users/packages')} class="ml-6 "> 
                       <i class="icofont-users text-2xl mr-4"></i> 
@@ -154,11 +154,16 @@ return (
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                   </svg>
             </button>
-            <ul  class={` py-2 space-y-2 animated fadeIn ${dropdownOpen === 4 ? '' : 'hidden'} `}>
+            <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 4 ? '' : 'hidden'} `}>
             <li>
                      <button onClick={()=>handleClickMenu('/users/packages')} class="ml-6">
                          <i className="icofont-lock text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
                         Login Password</button>
+                  </li>
+                  <li>
+                     <button onClick={()=>handleClickMenu('/logout')} class="ml-6">
+                         <i className="icofont-logout text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
+                        Logout</button>
                   </li>
                   <li>
                   <button onClick={handleSound} className="cursor-pointer flex flex-row items-center h-10  pl-6 " >
@@ -177,6 +182,14 @@ return (
 
         
 
+         <li>
+         <button  onClick={()=>handleClickMenu('/logout')}  class="flex items-center w-full p-2 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
+         <i className="icofont-logout text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
+                  <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap ml-4">LOGOUT</span>
+                
+            </button>
+          
+         </li>
         
    
    
