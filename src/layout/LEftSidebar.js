@@ -89,6 +89,9 @@ return (
                   <li>
                      <button onClick={()=>handleClickMenu('/users/my-packages')} class="ml-6"><i class="icofont-arrow-right"></i>My Package</button>
                   </li>
+                  <li>
+                     <button onClick={()=>handleClickMenu('/users/referrals')} class="ml-6"><i class="icofont-arrow-right"></i>My Referrals</button>
+                  </li>
                  
             </ul>
          </li>
@@ -103,10 +106,10 @@ return (
             </button>
             <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 2 ? '' : 'hidden'} `}>
             <li>
-                     <button onClick={()=>handleClickMenu('/users/packages')} class="ml-6 "><i class="icofont-arrow-right"></i>Deposit Wallet</button>
+                     <button onClick={()=>handleClickMenu('/users/deposit')} class="ml-6 "><i class="icofont-arrow-right"></i>Deposit Wallet</button>
                   </li>
                   <li>
-                     <button onClick={()=>handleClickMenu('/users/my-packages')} class="ml-6 "><i class="icofont-arrow-right"></i>History Deposit Wallet</button>
+                     <button onClick={()=>handleClickMenu('/users/history-deposit')} class="ml-6 "><i class="icofont-arrow-right"></i>History Deposit Wallet</button>
                   </li>
                   <li>
                      <button onClick={()=>handleClickMenu('/users/wd-request')} class="ml-6 "><i class="icofont-arrow-right"></i>WD Request</button>
@@ -130,13 +133,13 @@ return (
             </button>
             <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 3 ? '' : 'hidden'} `}>
             <li>
-                  <button onClick={()=>handleClickMenu('/users/packages')} class="ml-6 "> 
+                  <button onClick={()=>handleClickMenu('/users/refferals-bonus')} class="ml-6 "> 
                       <i class="icofont-users text-2xl mr-4"></i> 
                      Referrals Bonus</button>
                     
                   </li>
                   <li>
-                     <button onClick={()=>handleClickMenu('/users/my-packages')} class="ml-6">
+                     <button onClick={()=>handleClickMenu('/users/matching-bonus')} class="ml-6">
                      <i class="icofont-chart-flow text-2xl mr-4"></i>   Matching Bonus</button>  
                   </li>
                  

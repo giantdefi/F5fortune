@@ -5,6 +5,7 @@ import Router, { useRouter } from "next/router";
 import Head from 'next/head'
 import axios from 'axios';
 const moment = require('moment')
+import Wallet from "components/wallet"
 //--- redux store---------------------------------------
 import { useSelector, useDispatch } from 'react-redux';
 import { setPlaySound } from 'redux/reducers/SoundReducer';
@@ -150,13 +151,21 @@ export default function Refferals() {
                 <meta name="description" content="Withdrawal" />
             </Head>
 
-            <div className="min-h-screen pb-40 px-2 animated fadeIn pt-40 text-white">
+            <div className="min-h-screen pb-40 px-2 animated fadeIn md:pt-40 text-white">
+            <div className="flex justify-center  max-w-md items-center h-12 fixed top-[90px] md:top-[55px] right-10 md:right-0 z-10 bg-gray-900 mr-4 ">
+            <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
+          <Wallet/>
+            </div>                 
+            </div>
 
-             
+           
                 <div className="min-h-screen pb-40  px-2">
 
 
-
+ <div className="flex flex-row justify-between items-center ">
+                <h4 className="font-semibold mx-auto  uppercase text-4xl ">MY REFFERALS LEVEL</h4>
+            </div>
+             
 
                 <div className="text-center py-4 bg-gray-800 space-y-2 mt-1">
                     <p>Username : {getUsername || userid}</p>

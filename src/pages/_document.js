@@ -16,6 +16,7 @@ export default function Document() {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&family=Glory:ital,wght@0,100..800;1,100..800&family=Rock+Salt&display=swap" rel="stylesheet"></link>
             </Head>
+            
             <body>
                 <Main />
                 <NextScript />
