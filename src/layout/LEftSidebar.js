@@ -22,8 +22,9 @@ export default function Home() {
   const { dropdownOpen } = useSelector((state) => state.DrawerReducer)
 
 const handleClickMenu = (link) => {
-   dispatch(setLeftSidebar(false))
 
+   dispatch(setLeftSidebar(false))
+  dispatch(setPlaySound('click'))
    if(!isLogin){
       dispatch(setLoginSidebar(true))
    }else{
@@ -41,6 +42,7 @@ const handleSound = () => {
  }
 
 const handleDropdownOpen = (no) => {
+   dispatch(setPlaySound('click'))
    if(dropdownOpen === no) {
       dispatch(setdropdownOpen(0))
    }else{
