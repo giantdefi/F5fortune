@@ -8,8 +8,9 @@ import dynamic from 'next/dynamic'
 import LEftSidebar from "layout/LEftSidebar"
 import RightSidebar from "layout/LoginSidebar"
 //---- REDUX STORE ---------------------
+import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { setAllowSound } from 'redux/reducers/SettingReducer'
 import { resetErrors } from 'redux/reducers/ErrorReducer'
 import { resetForm } from 'redux/reducers/FormReducer'
 import { setLoginSidebar, setLeftSidebar } from 'redux/reducers/MainmenuReducer'
@@ -40,7 +41,7 @@ export default function TopNavigation() {
     }
 
     const handleOpenDrawer = () =>{  
-      
+        dispatch(setPlaySound('click'))
         if(leftSidebar){
             dispatch(setLeftSidebar(false))
            

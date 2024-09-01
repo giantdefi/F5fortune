@@ -168,11 +168,8 @@ return (
                          <i className="icofont-lock text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
                         Login Password</button>
                   </li>
-                  <li>
-                     <button onClick={()=>handleClickMenu('/logout')} class="ml-6">
-                         <i className="icofont-logout text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
-                        Logout</button>
-                  </li>
+               
+                
                   <li>
                   <button onClick={handleSound} className="cursor-pointer flex flex-row items-center h-10  pl-6 " >
                     
@@ -189,7 +186,7 @@ return (
          </li>
 
         
-
+         {isLogin && 
          <li>
          <button  onClick={()=>handleClickMenu('/logout')}  class="flex items-center w-full p-2 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
          <i className="icofont-logout text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
@@ -197,7 +194,7 @@ return (
                 
             </button>
           
-         </li>
+         </li>}
         
    
    
