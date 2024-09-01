@@ -89,9 +89,7 @@ return (
                   <li>
                      <button onClick={()=>handleClickMenu('/users/my-packages')} class="ml-6"><i class="icofont-arrow-right"></i>My Package</button>
                   </li>
-                  <li>
-                     <button onClick={()=>handleClickMenu('/users/referrals')} class="ml-6"><i class="icofont-arrow-right"></i>My Referrals</button>
-                  </li>
+                 
                  
             </ul>
          </li>
@@ -132,9 +130,14 @@ return (
                   </svg>
             </button>
             <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 3 ? '' : 'hidden'} `}>
+           
             <li>
+                     <button onClick={()=>handleClickMenu('/users/referrals')} class="ml-6"><i class="icofont-users mr-4"></i>My Referrals</button>
+                  </li>
+            <li>
+                 
                   <button onClick={()=>handleClickMenu('/users/refferals-bonus')} class="ml-6 "> 
-                      <i class="icofont-users text-2xl mr-4"></i> 
+                      <i class="icofont-flora-flower text-2xl mr-4"></i> 
                      Referrals Bonus</button>
                     
                   </li>
@@ -159,7 +162,7 @@ return (
             </button>
             <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 4 ? '' : 'hidden'} `}>
             <li>
-                     <button onClick={()=>handleClickMenu('/users/packages')} class="ml-6">
+                     <button onClick={()=>handleClickMenu('/users/change-password')} class="ml-6">
                          <i className="icofont-lock text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
                         Login Password</button>
                   </li>

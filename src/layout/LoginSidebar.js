@@ -19,6 +19,7 @@ import BtnRegister from 'redux/actions/BtnRegister'
 import { resetErrors } from 'redux/reducers/ErrorReducer'
 import { resetForm } from 'redux/reducers/FormReducer'
 import { setShowLogin } from 'redux/reducers/SidebarReducer'
+import { setPlaySound } from 'redux/reducers/SoundReducer';
 
 import { useSelector, useDispatch } from 'react-redux'
 import { setLoginSidebar } from 'redux/reducers/MainmenuReducer'
@@ -75,10 +76,12 @@ const handleLogin = () => {
    
     if (!email) {
         setSpinner(false)
+        dispatch(setPlaySound('error'))
         return dispatch(setError({ path: "email", message: 'Email is required' }))
     }
     if (!password) {
         setSpinner(false)
+        dispatch(setPlaySound('error'))
         return dispatch(setError({ path: "password", message: 'Password is required' }))
     }
 
@@ -114,7 +117,7 @@ const handleLoginDelay = async () => {
             setSpinner(false)
             
             if (data.isSuccess) {
-
+                dispatch(setPlaySound('success'))
                 const token = response.data.token
                 const dataLogin = response.data.dataLogin
 

@@ -9,6 +9,7 @@ import Wallet from "components/wallet"
 import WDAmount from "components/inputforms/withdrawal/WDAmount"
 import WalletAddress from "components/inputforms/withdrawal/WalletAddress"
 //---- REDUX STORE ---------------------
+import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalToast, setModalMessage,setModalConfirmBuyPackage  } from 'redux/reducers/ModalReducer';
 import { setError } from 'redux/reducers/ErrorReducer';
@@ -46,10 +47,12 @@ export default function Users() {
    
        if(!wdWalletAmount){
         setSpinner(false)
+        dispatch(setPlaySound('error'))
         return dispatch(setError({ path: "wdWalletAmount", message: 'WD amount is required' }))
        }
        if(!walletAddr){
         setSpinner(false)
+        dispatch(setPlaySound('error'))
         return dispatch(setError({ path: "walletAddr", message: 'Wallet address is required' }))
        }
    
@@ -73,15 +76,15 @@ export default function Users() {
                 setSpinner(false)
                 const data = response.data
 
-                console.log(data)
-console.log(data.e_wallet)
+                if (data.isSuccess) {
+             
                 if(data.e_wallet){
                     dispatch(setEWallet(data.e_wallet))
                 }
-
+                dispatch(setPlaySound('success'))
                  return   dispatch(setModalToast({ type: response.data.type, title: response.data.title, message: response.data.message }))
 
-
+            }
               
                 setSpinner(false)
 

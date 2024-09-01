@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setModalMessage, setModalConfirmBuyPackage, setModalToast } from 'redux/reducers/ModalReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
 
-import { setEWallet } from 'redux/reducers/AuthReducer'
+import { setEWallet,setRWallet } from 'redux/reducers/AuthReducer'
 
 
 //--------------------------------------
@@ -39,7 +39,7 @@ export default function BtnActivateBinary() {
 
         const URL = process.env.NEXT_PUBLIC_API_URL_V1
         return axios({
-            url: `${URL}/package/buy-package`,
+            url: `${URL}/package/add-package`,
             method: 'POST',
             data,
             'headers': {
@@ -54,7 +54,7 @@ export default function BtnActivateBinary() {
 
                 if (data.isSuccess) {
                     setSpinner(false)
-                    dispatch(setEWallet(response.data.wallet.e_wallet))
+                    dispatch(setRWallet(response.data.wallet.r_wallet))
                     dispatch(setModalConfirmBuyPackage(false))
                  return   dispatch(setModalToast({ type: response.data.type, title: response.data.title, message: response.data.message }))
 
@@ -94,7 +94,7 @@ export default function BtnActivateBinary() {
               
 
                 <button onClick={handleBuyPackage} className="_btn_submit_blue border-2 border-gray-300">
-                Yes Confirm  <i className="icofont-rounded-double-right ml-2 text-lg"></i>
+                Yes Add More  <i className="icofont-rounded-double-right ml-2 text-lg"></i>
             </button>
                       
                   

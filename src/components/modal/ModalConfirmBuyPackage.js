@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react"
 //import Link from 'next/link'
 import Router, { useRouter } from "next/router"
-import BtnBuyPackage from "redux/actions/BtnBuyPackage"
+import BtnBuyPackage from "redux/actions/BtnBuyPackage" 
+import BtnAddMorePackage from "redux/actions/BtnAddMorePackage" 
 //---- REDUX STORE ---------------------
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalConfirmBuyPackage } from 'redux/reducers/ModalReducer'
@@ -17,7 +18,7 @@ export default function ModalConfirmBuyPins() {
     const dispatch = useDispatch()
     const [continueLoader, setContinueLoader] = useState(false)
     const { modalConfirmBuyPackage } = useSelector((state) => state.ModalReducer)
-    const { isLogin, isBinary, wallet } = useSelector((state) => state.AuthReducer)
+    const { isLogin, isActive,  } = useSelector((state) => state.AuthReducer)
    
 
 
@@ -73,20 +74,18 @@ export default function ModalConfirmBuyPins() {
 
                     <div className="modal-content  py-4 px-4">
 
-                        <h5 className="text-gray-100 uppercase font-semibold"> Confirm to buy package?</h5>
-                     
-                      
-                       
-
-                       
-                     
+                        <h5 className="text-gray-100 uppercase font-semibold text-white"> 
+                            Confirm to {isActive? 'Add More Package' : 'buy package'}?</h5>
+                            {isActive?
+                            <p className="text-white">Buy Package Using only R Wallet</p>:
+                            <p className="text-white">Buy Package Using E Wallet</p>
+}
                             <div className="flex justify-between  mt-4">
                                 <button onClick={handleCloseModal} className="_btn_submit_red flex centered">
                                     Cancel
                                 </button>
-                              <BtnBuyPackage/>
+                                {isActive? <BtnAddMorePackage/> :  <BtnBuyPackage/> }
 
-                             
                             </div>
 
                     </div>

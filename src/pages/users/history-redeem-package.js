@@ -26,17 +26,6 @@ export default function Users() {
     const { userid, token } = useSelector((state) => state.AuthReducer)
     const { WDCashArray, WDCashTx, WDCashTotal,totalWDPaid } = useSelector((state) => state.HistoryReducer)
   
-const Shorter = (account) => {
-    if(account) {
-    let front = account.substring(0, 10);
-    let back = account.substring(account.length - 10);
-    const string = front + '....' + back;
-    return string
-    }else{
-        return false
-    }
-   
-}
 
     useEffect(() => {
       dispatch(setDetailPackage(false))
@@ -49,7 +38,7 @@ const Shorter = (account) => {
 
         const URL = process.env.NEXT_PUBLIC_API_URL_V1
    return axios({
-       url: `${URL}/users/history-deposit?userid=${userid}`,
+       url: `${URL}/users/history-redeem-package?userid=${userid}`,
        method: 'GET',
      
        'headers': {
@@ -102,24 +91,22 @@ const Shorter = (account) => {
  <section className=" dark:bg-gray-900 mt-20 lg:mt-20">
   <div className="py-8 px-4 mx-auto  lg:py-16 lg:px-6 text-white">
       <div className="mx-auto max-w-screen-lg text-center mb-8 lg:mb-12">
-          <h2 className="mb-4 text-4xl tracking-tight bold text-gray-100 ">History Deposit Request</h2>
+          <h2 className="mb-4 text-4xl tracking-tight bold text-gray-100 ">History Redeem Package</h2>
         
-          <p></p>
       </div>
       <div className="mx-auto max-w-7xl  px-4">
   
 
-      <p>Latest 50 transactions</p>
+ <p>Latest 50 transactions</p>
 <table className="w-full text-sm text-left text-gray-500 mt-2">
             <thead className="text-sm text-white uppercase bg-blue-900 border-b border-gray-600">
 
             <tr>
-                                    <th className="py-3 text-center"> no</th>
+                                    <th className="py-3 text-center"> Package</th>
                                     <th className="py-3 text-center"> Amount</th>
-                                    <th className="py-3 text-center"> Txhash</th>
+                                    <th className="py-3 text-center"> Running days</th>
+                                   
                                     <th className="py-3 text-center"> Time</th>
-                                    <th className="py-3 text-center"> Status</th>
-                                  
                                 </tr>
             </thead>
             <tbody >
@@ -128,27 +115,23 @@ const Shorter = (account) => {
                     return (
                         <tr className="bg-gray-800 text-white h-12 border-b border-gray-600" key={index}>
                             <td className="text-center text-xs">
-                            {index+1}
+                            {item.package_name}
                             </td>
                             <td className="text-center text-sm">
-                                {item.amount}
+                                {item.wd_amount}
                                 {/* {index === 0 && <span className="ml-2">*</span>} */}
                             </td>
-                            <td className="text-center text-xs">
-                        
-                           <a href={`https://bscscan.com/tx/` + item.tx_hash} target="_blank" rel={"noreferrer"} className="text-green-300" title="show on bscscan">
-                           {Shorter(item.tx_hash)}
-           </a>
+                            <td className="text-center text-sm">
+                                {item.running_days}
+                                {/* {index === 0 && <span className="ml-2">*</span>} */}
                             </td>
                         
                             <td className="text-center text-xs">
                             <p>{moment.unix(item.time).format("YYYY/MM/DD  hh:mm:ss ")}</p>
                             <p className="text-yellow-500">{moment(moment.unix(item.time), "YYYY/MM/DD h:i:s").fromNow()}</p>
                             </td>
-                            <td className="text-center text-xs">
-                           {item.confirmed? 'CONFIRMED' : 'Pending'}
-                            </td>
                           
+                           
                            
                        
                         </tr>
@@ -161,7 +144,7 @@ const Shorter = (account) => {
         </table>
     
   
-<p className="text-sm mt-10">Click on TXHASH to show on Binance Explorer</p>
+
 
 </div>
   </div>

@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 import dynamic from 'next/dynamic'
 import Wallet from "components/wallet"
-
+import { setPlaySound } from 'redux/reducers/SoundReducer';
 //---- REDUX STORE ---------------------
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalToast, setModalMessage,setModalConfirmBuyPackage  } from 'redux/reducers/ModalReducer';
@@ -21,7 +21,7 @@ export default function Users() {
     const {  title, desc } = useSelector((state) => state.GeneralReducer)
     const { admin_packages, selectedPackage } = useSelector((state) => state.PackageReducer)
  
-    const { isLogin, e_wallet, r_wallet } = useSelector((state) => state.AuthReducer)
+    const { isLogin, isActive, e_wallet, r_wallet } = useSelector((state) => state.AuthReducer)
 
 
     useEffect(() => {
@@ -34,6 +34,7 @@ export default function Users() {
     }, [])
 
    const handleBuyPackage = (item) => {
+       dispatch(setPlaySound('error'))
        dispatch(setSelectedPackage(item))
        if(parseFloat(e_wallet) < parseInt(item.package_value)){
          dispatch(setModalToast({ type: 'error', title: "Request Fail!", message: "insufficient EWallet balance" }))
@@ -43,7 +44,7 @@ export default function Users() {
       
     }
 
-    console.log(selectedPackage)
+   // console.log(selectedPackage)
 
     return (
         <>
@@ -105,7 +106,9 @@ export default function Users() {
                   </li>
                  
               </ul>
-              <button onClick={()=>handleBuyPackage(item)} className="text-white bg-sky-800 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">BUY PACKAGE</button>
+              <button onClick={()=>handleBuyPackage(item)} className="text-white bg-sky-800 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
+               {isActive? 'ADD MORE PACKAGE' : 'BUY PACKAGE' }
+                </button>
           </div> 
             )
         })}

@@ -6,9 +6,10 @@ import Wallet from "components/wallet"
 import Head from 'next/head'
 import BtnWDWallet from "redux/actions/BtnWDWallet";
 //--- redux store---------------------------------------
+import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useSelector, useDispatch } from 'react-redux';
 import { setWDAmounts, setWDType, setMyPackageDetail, setSelectedActPackID } from 'redux/reducers/PackageReducer';
-import { setPlaySound } from 'redux/reducers/SoundReducer';
+
 //--------------------------------------
 
 export default function Withdrawal() {

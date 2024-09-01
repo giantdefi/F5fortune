@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react"
 
 //--- redux store---------------------------------------
 import { useSelector, useDispatch } from 'react-redux'
-import { setFormPassword } from 'redux/reducers/FormReducer'
+import { setFormPassword, setNewPassword } from 'redux/reducers/FormReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
-import { setNewPassword } from 'redux/reducers/AuthReducer'
+
 //-------------------------------------------------------
 
 
@@ -14,7 +14,7 @@ export default function Password() {
     const [showPassword, setShowPassword] = useState(false)
     // redux store
     const dispatch = useDispatch();
-    const { newPassword } = useSelector((state) => state.AuthReducer)
+    const { newPassword } = useSelector((state) => state.FormReducer)
     const { formError } = useSelector((state) => state.ErrorReducer)
 
 
@@ -63,7 +63,7 @@ export default function Password() {
             </div>
 
             <input type={!showPassword ? "password" : "text"} autoComplete="off"
-                className="w-full mt-2 py-3 px-3 rounded-lg h-[60px] bg-purple-900 border border-gray-400 
+                className="w-full mt-2 py-3 px-3 rounded-lg h-[60px] bg-gray-800 border border-gray-400 
                    text-gray-50  font-semibold focus:border-green-500 focus:outline-none" ref={inputRef}
                 name="newPassword"
                 value={newPassword || ''}

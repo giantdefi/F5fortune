@@ -128,14 +128,17 @@ export default function SidebarBody() {
                 </a>
               </li>
 
-            
               <li className="cursor-pointer hover:text-green-300">
-                <a onClick={()=>router.push('/users/referrals')} className={` flex flex-row items-center h-10  pl-6 
+                <a onClick={()=>router.push('/users/history-redeem-package')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 2 && dropdownOpen === 1 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                  <i className="icofont-chart-flow text-2xl mr-4 text-yellow-300"></i> My Referrals</p>
+                  <i className="icofont-chart-growth text-2xl mr-4 text-yellow-300"></i> History Redeem Packages</p>
                 </a>
               </li>
+
+
+            
+           
 
                     
 
@@ -230,6 +233,14 @@ export default function SidebarBody() {
             <ul className={mainSidebarOpen && dropdownOpen === 3 ? "d-block animated fadeIn bg-gray-800 py-2 pb-6" : "hidden"}>
             
             <li className="cursor-pointer hover:text-green-300">
+                <a onClick={()=>router.push('/users/referrals')} className={` flex flex-row items-center h-10  pl-6 
+                    ${itemSelected === 2 && dropdownOpen === 1 && 'bg-white bg-opacity-10'}`}>
+                  <p className="text-sm ">
+                  <i className="icofont-chart-flow text-2xl mr-2 text-yellow-300"></i> My Referrals</p>
+                </a>
+              </li>
+
+            <li className="cursor-pointer hover:text-green-300">
                 <a onClick={()=>router.push('/users/refferals-bonus')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 5 && dropdownOpen === 3 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
@@ -248,13 +259,6 @@ export default function SidebarBody() {
 
             </ul>
           </li>
-
-
-        
-
-     
-
-
 
           {/* //------------------- DROPDOWN 4 ------------------------ */}
 
@@ -294,7 +298,7 @@ export default function SidebarBody() {
               </li> */}
               
               <li className="cursor-pointer hover:text-green-300">
-                <a onClick={()=>router.push('/users/password')} className={` flex flex-row items-center h-10  pl-6 
+                <a onClick={()=>router.push('/users/change-password')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 14 && dropdownOpen === 6 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
                     <i className="icofont-lock text-lg mr-1 text-yellow-300 hover:text-green-300"></i> Login Password</p>

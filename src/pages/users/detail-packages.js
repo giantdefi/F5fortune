@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic'
 import Wallet from "components/wallet"
 
 //---- REDUX STORE ---------------------
+import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalToast, setModalMessage,setModalConfirmBuyPackage  } from 'redux/reducers/ModalReducer';
 import { setTotalEquity, setRunningDays, setRunningProfit, setEffectiveDays, setAvailabletoWDDays, setAvailabletoWDValue 
@@ -121,11 +122,8 @@ export default function Users() {
 
     const handleWithdrawal = (actPid, pname, value, runningProfit, runningDays, effectiveDays) => {
         setSpinner(true)
-       //  dispatch(setPlaySound('click'))
-         // console.log(actPid)
-         // console.log(runningProfit)
-         // console.log(runningDays)
-         // console.log(effectiveDays)
+        dispatch(setPlaySound('pling'))
+        
  
          dispatch(setSelectedActPackID(actPid))
          dispatch(setWDAmounts(runningProfit))

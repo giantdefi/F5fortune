@@ -10,6 +10,7 @@ import DepoAmount from "components/inputforms/deposit/DepoAmount"
 import AdmWalletAddress from "components/inputforms/deposit/AdmWalletAddress"
 import TXhash from "components/inputforms/deposit/TXhash"
 //---- REDUX STORE ---------------------
+import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalToast, setModalMessage,setModalConfirmBuyPackage  } from 'redux/reducers/ModalReducer';
 import { setError } from 'redux/reducers/ErrorReducer';
@@ -47,10 +48,12 @@ export default function Users() {
    
        if(!depositAmount){
         setSpinner(false)
+        dispatch(setPlaySound('error'))
         return dispatch(setError({ path: "depositAmount", message: 'Depo amount is required' }))
        }
        if(!transactionHash){
         setSpinner(false)
+        dispatch(setPlaySound('error'))
         return dispatch(setError({ path: "transactionHash", message: 'Transaction Hash is required' }))
        }
    
@@ -75,6 +78,7 @@ export default function Users() {
                 const data = response.data
 
                 if (data.isSuccess) {
+                    dispatch(setPlaySound('success'))
                       return   dispatch(setModalToast({ type: response.data.type, title: response.data.title, message: response.data.message }))
                 }
 

@@ -157,11 +157,11 @@ return (
 
  
 
-    {/* {!spinner && !myRefBonusArray.length && */}
+     {!spinner && !myRefBonusArray.length && 
         <div className="text-center">
             <p className="pt-10 text-white">Opss, no referral data found!</p>
         </div>
-    {/* } */}
+    }
         <div className="text-start mx-auto ">
             <p className="pt-10 text-sm text-center text-white">Users will get sponsor bonus when their downlines buy a package or add more package. </p>
             <p className="text-sm mx-auto text-white text-center"> Users can have multyple packages in a single account.</p>

@@ -77,7 +77,7 @@ export default function ModalMessage() { // receive props from parent
             <div className="_gradient_puple flex flex-row items-center  p-5 rounded-2xl border-2 ">
               <div className="flex items-center bg-green-100 border-2 border-yellow-500 justify-center rounded-full h-10 w-10 flex-shrink-0 rounded-2xl-full">
                 <span className="text-green-500">
-                <img src="/assets/img/loadcat.gif" className="rounded-full animated fadeIn" alt="avatar" />
+                <i className="icofont-check-circled text-4xl"></i>
                 </span>
               </div>
               <div className="alert-content ml-4">

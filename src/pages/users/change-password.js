@@ -2,14 +2,11 @@ import React, { useState, useRef } from "react";
 //import Link from 'next/link'
 //import Router, { useRouter } from "next/router";
 import axios from 'axios';
-//import bcrypt from 'bcryptjs'
-import dynamic from 'next/dynamic'
-const bcrypt = dynamic(() => import("bcryptjs"), {
-    ssr: false,
-})
+
 import Head from 'next/head'
 
-import Password from "components/inputforms/auth/Password";
+import CurrentPassword from "components/inputforms/password/CurrentPassword";
+import NewPassword from "components/inputforms/password/NewPassword";
 //--- redux store---------------------------------------
 import { useSelector, useDispatch } from 'react-redux';
 import { setPlaySound } from 'redux/reducers/SoundReducer';
@@ -26,57 +23,58 @@ export default function Withdrawal() {
     const dispatch = useDispatch();
     const [spinner, setSpinner] = useState(false)
     const { formError } = useSelector((state) => state.ErrorReducer)
-    const { isLogin, username } = useSelector((state) => state.AuthReducer)
-    const { password } = useSelector((state) => state.FormReducer)
+    const { isLogin, token, userid } = useSelector((state) => state.AuthReducer)
+    const { newPassword, currentpassword } = useSelector((state) => state.FormReducer)
 
     const [mypassword, setMyPassword] = useState()
 
     //-------------------------------------
     const handleChangePassword = async () => {
 
-
-        if (!isLogin) {
-            dispatch(setPlaySound('error'))
-            return dispatch(setModalMessage({ type: 'danger', title: "Login Required", message: 'Please Login to continue' }))
+        const data = {
+           
+            userid,  currentpassword, newPassword,  
         }
 
-        if (!password) {
+        if (!currentpassword) {
             setSpinner(false)
             dispatch(setPlaySound('error'))
-            return dispatch(setError({ path: "password", message: 'Password is missing' }))
+            return dispatch(setError({ path: "currentpassword", message: 'Current Password is required' }))
+        }
+        if (!newPassword) {
+            setSpinner(false)
+            dispatch(setPlaySound('error'))
+            return dispatch(setError({ path: "newPassword", message: 'New Password is required' }))
         }
 
-        const salt = await bcrypt.genSalt(10)
-        const hash = await bcrypt.hash(password, salt)
+        
+              setSpinner(true)
 
-        dispatch(setPlaySound('click'))
-
-        setSpinner(true)
-
-        const data = {
-            action: 'REQUEST_CHANGE_PASSWORD',
-            username: username,
-            password: hash
-        }
 
         //  console.log(data)
 
 
-        const URL = process.env.NEXT_PUBLIC_API_URL
-        return axios({
-            url: `${URL}/users`,
+        const URL = process.env.NEXT_PUBLIC_API_URL_V1
+            return axios({
+            url: `${URL}/users/update-password`,
             method: 'POST',
-            data
+            data,
+            'headers': {
+               'Authorization': token,
+                accept: 'application/json',
+                'content-type': 'application/json',
+            }
         })
             .then(async response => {
 
                 const data = response.data
+                console.log(data)
 
                 if (data.isSuccess) {
-                    setMyPassword(password)
+                    //setMyPassword(password)
                     dispatch(resetForm())
                     dispatch(setPlaySound('success'))
-                    dispatch(setModalMessage({ type: 'success', title: "Request Success!", message: 'Change phone is successful' }))
+                    dispatch(setModalMessage({ type: 'success', title: "Request Success!", message: 'Change password is successful' }))
                 } else {
                     console.log(data)
                     dispatch(setPlaySound('error'))
@@ -96,26 +94,26 @@ export default function Withdrawal() {
         <>
 
             <Head>
-                <title>DRH INVESTING</title>
+                <title>FIVEFORTUNE</title>
                 <meta name="description" content="Withdrawal" />
             </Head>
 
-            <div className="min-h-screen pb-40 px-2">
+            <div className="min-h-screen pb-40 pt-20 px-6">
 
 
+             
 
-                <div className="flex justify-center _gradient_slate py-2  mt-2 mb-4">
-                    <h4 className="font-semibold  uppercase text-[22px]">Change Password</h4>
+                <div className="flex justify-center  py-2  mt-2 mb-4">
+                    <h4 className="text-white  uppercase text-[22px]">Change Password</h4>
                 </div>
 
-                <div className="border py-5 border-gray-700 bg-gray-900">
-                    <p className="ml-5 text-sm">Please enter your New password and do not forget it</p>
-                    <Password />
-
-                    {mypassword && <p className="ml-5 text-sm">New password : {mypassword}</p>}
-
+                <div className="md:w-1/2 mx-auto">
+                <div className="border py-5 border-gray-700 bg-gray-900 text-white px-2">
+                   
+                    <CurrentPassword />
+                    <NewPassword/>
                 </div>
-                <br />
+               
 
                 <div className="flex justify-center mt-10">
                     {spinner ?
@@ -130,13 +128,13 @@ export default function Withdrawal() {
                         <button onClick={handleChangePassword}
                             className="_btn_submit_green w-[90%] mb-5 text-xl mx-auto py-2 mt-5 border-4 border-gray-200  flex justify-center items-center">
                             <i className="icofont-rounded-double-right  mr-2 text-2xl"></i>
-                            REQUEST CHANGE
+                            SUBMIT CHANGE
                         </button>
 
 
                     }
                 </div>
-
+                </div>
 
 
 

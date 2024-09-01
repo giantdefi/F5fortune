@@ -70,7 +70,7 @@ export default function Refferals() {
              //   console.log(response.data)
 
                 if (response.data.isSuccess) {
-
+                    dispatch(setPlaySound('error'))
                     if(response.data.data.length){
                         dispatch(setCountMyDownlines(response.data.data[0].direct_refs))
                         dispatch(setMyDownlinesArray(response.data.data))

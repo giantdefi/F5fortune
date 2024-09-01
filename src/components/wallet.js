@@ -35,7 +35,7 @@ export default function Wallet() {
     }, 2000)
    
     // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [e_wallet])
+}, [e_wallet, r_wallet])
 
 
 

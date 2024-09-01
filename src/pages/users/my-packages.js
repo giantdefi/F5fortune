@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic'
 import Wallet from "components/wallet"
 
 //---- REDUX STORE ---------------------
+import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalToast, setModalMessage,setModalConfirmBuyPackage  } from 'redux/reducers/ModalReducer';
 import { resetStatement } from 'redux/reducers/StatementReducer';
@@ -57,6 +58,7 @@ export default function Users() {
 } 
 
    const handleDetailPackage = (data) => {
+    dispatch(setPlaySound('pling'))
     dispatch(setDetailPackage(data))
     router.push('/users/detail-packages')
    }
@@ -81,11 +83,11 @@ export default function Users() {
             {/* <div className="h-[300px] bg-sky-700 flex  fixed w-full max-w-md lg:max-w-full"> </div> */}
           
 
- <section className="bg-gray-100 dark:bg-gray-900 mt-20 lg:mt-20">
+ <section className=" dark:bg-gray-900 mt-20 lg:mt-20">
   <div className="py-8 px-4 mx-auto  lg:py-16 lg:px-6">
       <div className="mx-auto max-w-screen-lg text-center mb-8 lg:mb-12">
-          <h2 className="mb-4 text-4xl tracking-tight bold text-gray-900 dark:text-white">My Active Packages</h2>
-          
+          <h2 className="mb-4 text-4xl tracking-tight bold text-gray-100 dark:text-white">My Active Packages</h2>
+          <p className="text-gray-100">You have : {myPacakges ? myPacakges.length : '0'} Active packages</p>
       </div>
       <div className="mx-auto max-w-7xl  px-4">
   
@@ -97,20 +99,20 @@ export default function Users() {
     return (
         <div className="divide-y bg-white divide-gray-200 rounded-lg border border-gray-200 shadow-md" key={index}>
       <div className="p-6">
-        <h2 className="text-lg font-medium leading-6 text-gray-900">{item.name}</h2>
-        <p className="my-4 text-4xl font-bold tracking-tight text-gray-900">
+        <h2 className="text-lg font-medium leading-6 text-gray-900">{item.name} - {item.value}</h2>
+        {/* <p className="my-4 text-4xl font-bold tracking-tight text-gray-900">
           $<span id="basicPlanPrice">{item.value}</span>
-        </p>
+        </p> */}
         <div className="flex-col">
           <button onClick={()=>handleDetailPackage(item)} className="shadow-lg mt-3 block w-full rounded-md border border-blue-800
-           bg-blue-800 py-2 text-center text-sm font-semibold text-white hover:bg-blue-900">Get Detail →</button>
+           bg-blue-800 py-2 text-center text-sm font-semibold text-white hover:bg-blue-900">SEE PROGRESS →</button>
         </div>
       </div>
-      <div className="px-6 pt-6 pb-8">
-        <h3 className="text-sm font-medium text-gray-900">What{"'"}s included</h3>
-        <ul role="list" className="mt-6 space-y-4">
+      <div className="px-6 pt-2 pb-8">
+       
+        <ul role="list" className="">
         
-          <li className="flex space-x-3 items-center">
+          <li className="flex space-x-1 items-center">
             <div className="w-6 h-6 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round"

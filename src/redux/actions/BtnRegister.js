@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import Router, { useRouter } from "next/router"
 import axios from 'axios'
-import { setPlaySound } from 'redux/reducers/SoundReducer'
+
 //--- redux store---------------------------------------
+import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalMessage, setCofetty, setModalToast } from 'redux/reducers/ModalReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
@@ -46,36 +47,44 @@ export default function BtnActivateBinary() {
         }
         if (!sponsor) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "sponsor", message: 'Sponsor is required' }))
         }
         if (!firstName) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "firstName", message: 'First Name is required' }))
         }
        
         if (!lastName) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "lastName", message: 'Last Name is required' }))
         }
       
         if (!email) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "email", message: 'Email is required' }))
         }
         if (!phone) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "phone", message: 'Handphone is required' }))
         }
         if (!password) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "password", message: 'Password is required' }))
         }
         if (!confirmPassword) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "confirmPassword", message: 'Confirm Password is required' }))
         }
         if (password !== confirmPassword) {
             setSpinner(false)
+            dispatch(setPlaySound('error'))
             return dispatch(setError({ path: "confirmPassword", message: 'confirm Password does not match' }))
         }
 
@@ -105,7 +114,7 @@ console.log(data)
 
                 if (data.isSuccess) {
 
-                   
+                    dispatch(setPlaySound('success'))
                     const token = response.data.token
                     const dataLogin = response.data.dataLogin
     

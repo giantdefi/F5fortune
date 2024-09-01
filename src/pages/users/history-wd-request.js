@@ -99,7 +99,7 @@ export default function Users() {
       <div className="mx-auto max-w-7xl  px-4">
   
 
- 
+      <p>Latest 50 transactions</p>
 <table className="w-full text-sm text-left text-gray-500 mt-2">
             <thead className="text-sm text-white uppercase bg-blue-900 border-b border-gray-600">
 
