@@ -20,10 +20,11 @@ export default function Users() {
 //    const { adminPackageArray, allowRelaodPackage } = useSelector((state) => state.PackageReducer)
     const router = useRouter()
     const dispatch = useDispatch() 
- 
+    const { app_currency} = useSelector((state) => state.ConstantReducer)
     const { mainSidebarOpen } = useSelector((state) => state.MainmenuReducer)
     const { isLogin, e_wallet, r_wallet, wd_request, total_wd_paid } = useSelector((state) => state.AuthReducer)
-
+   // const { WDCashArray, WDCashTx, WDCashTotal,totalWDPaid } = useSelector((state) => state.HistoryReducer)
+  
     
     useEffect(() => {
 
@@ -153,11 +154,11 @@ export default function Users() {
           </div>
           <div className="p-4 text-right">
             <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">E Wallet</p>
-            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">{e_wallet}</h4>
+            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900"><small className="text-sm">{app_currency}</small>  {parseFloat(e_wallet).toLocaleString(2)}</h4>
           </div>
           <div className="border-t border-blue-gray-50 p-4">
             <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-              <small> Withdrawable Amount</small>
+              <small > Withdrawable Amount</small>
             </p>
           </div>
         </div>
@@ -169,11 +170,11 @@ export default function Users() {
           </div>
           <div className="p-4 text-right">
             <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">R Wallet</p>
-            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">{r_wallet}  </h4>
+            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900"><small  className="text-sm">{app_currency}</small>  {parseFloat(r_wallet).toLocaleString(2)}  </h4>
           </div>
           <div className="border-t border-blue-gray-50 p-4">
             <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-             <small>Amount for buy Package</small>
+             <small >Amount for buy Package</small>
             </p>
           </div>
         </div>
@@ -184,12 +185,12 @@ export default function Users() {
             </svg>
           </div>
           <div className="p-4 text-right">
-            <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Total WD request</p>
-            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">{wd_request}</h4>
+            <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Total WD Cash request</p>
+            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900"><small  className="text-sm">{app_currency}</small>  {parseFloat(wd_request).toLocaleString(2)}</h4>
           </div>
           <div className="border-t border-blue-gray-50 p-4">
             <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-              <small>Total WD Request</small>
+              <small >Total WD Request to Admin</small>
             </p>
           </div>
         </div>
@@ -202,12 +203,12 @@ export default function Users() {
             </svg>
           </div>
           <div className="p-4 text-right">
-            <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">WD Paid</p>
-            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">{total_wd_paid}</h4>
+            <p className="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Total WD Paid</p>
+            <h4 className="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900"><small  className="text-sm">{app_currency}</small> {parseFloat(total_wd_paid).toLocaleString(2)}</h4>
           </div>
           <div className="border-t border-blue-gray-50 p-4">
             <p className="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-             <small> Total WD paid</small>
+             <small> Total WD paid to your wallet address</small>
             </p>
           </div>
         </div>

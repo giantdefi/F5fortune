@@ -3,7 +3,7 @@ import axios from 'axios';
 import Router, { useRouter } from "next/router";
 //--- redux store---------------------------------------
 import { useSelector, useDispatch } from 'react-redux';
-import { setWDCryptoAddress, setShowCaptcha } from 'redux/reducers/FormReducer';
+import { setWDCryptoAddress,  } from 'redux/reducers/FormReducer';
 import { setError } from 'redux/reducers/ErrorReducer';
 //-------------------------------------------------------
 
@@ -15,8 +15,9 @@ export default function WalletAddress() {
 
     // redux store
     const dispatch = useDispatch();
-    const { walletAddr } = useSelector((state) => state.FormReducer)
+   
     const { formError } = useSelector((state) => state.ErrorReducer)
+    const { admin_wallet } = useSelector((state) => state.ConstantReducer)
 
     // handle on input value change
     const handleChange = (e) => {
@@ -47,21 +48,20 @@ export default function WalletAddress() {
 
                 <div className="w-full  mt-5">
 
-                    <p className="mb-2 text-white"> Your USDT Wallet address :</p>
+                    <p className="mb-2 text-white"> Deposit to Admin Wallet address :</p>
 
                     <div className="flex flex-col">
 
                         <div className="w-full">
 
-                            <input type="text" className=" bg-gray-800 w-full text-white border border-gray-500 rounded-md py-2 px-3" ref={inputRef}
-                                name="walletAddr"
-                                value={walletAddr || ''}
-                                onChange={handleChange}
-
+                            <input type="text" className=" bg-gray-800 w-full text-white   rounded-md py-2 px-3" ref={inputRef}
+                                name="admin_wallet"
+                                value={admin_wallet || ''}
+                            readOnly
                             />
                         </div>
 
-                        {formError && formError.path === 'walletAddr' ?
+                        {formError && formError.path === 'admin_wallet' ?
                             <p className="text-yellow-300 ml-2 text-sm mt-1">
                                 {/* <span className="animate-ping inline-flex h-3 w-3 rounded-full bg-red-100 opacity-75 mr-2" /> */}
                                 <i className="icofont-arrow-right animate-ping  mr-2"></i>

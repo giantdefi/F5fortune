@@ -39,6 +39,9 @@ import StatementReducer from 'redux/reducers/StatementReducer'
 import MatchingReducer from 'redux/reducers/MatchingReducer'
 import AffiliateReducer from 'redux/reducers/AffiliateReducer' 
 import DrawerReducer from 'redux/reducers/DrawerReducer' 
+
+import HistoryReducer from 'redux/reducers/HistoryReducer' 
+
 const rootReducer = combineReducers({
 
   AuthReducer,
@@ -48,6 +51,7 @@ const rootReducer = combineReducers({
   ErrorReducer,
   FormReducer,
   GeneralReducer,
+  HistoryReducer,
   LoaderReducer,
   MainmenuReducer,
   ModalReducer,

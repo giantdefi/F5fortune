@@ -31,7 +31,7 @@ export default function Users() {
 
     const time = 86400
 
-    console.log(detailPackage)
+ //   console.log(detailPackage)
 
     useEffect(() => { 
 
@@ -40,7 +40,7 @@ export default function Users() {
             const days = (parseInt(Math.round(Date.now()) / 1000) - parseInt(detailPackage.time_start)) // 1000 is second id JS date not used!
 
 
-            console.log(days)
+          //  console.log(days)
 
 
             if (days < time) {
@@ -55,8 +55,8 @@ export default function Users() {
                 }
             }
 
-       console.log('runningDays')
-       console.log(runningDays)
+    //    console.log('runningDays')
+    //    console.log(runningDays)
 
             let newArray = []
             const data = {
@@ -89,8 +89,8 @@ export default function Users() {
 
                     if (i < (runningDays) ) {  // profit on current running days
                        runningProfit = (parseInt(runningDays-detailPackage.wd_days) * roi )
-                       console.log('---------------runningProfit')
-                       console.log(runningProfit)
+                   //    console.log('---------------runningProfit')
+                   //    console.log(runningProfit)
                        dispatch(setRunningProfit(runningProfit))
                       
                      }
@@ -106,8 +106,8 @@ export default function Users() {
 
             dispatch(setRunningProfit(runningProfit)) 
             dispatch(setAvailabletoWDValue(runningProfit)) 
-            console.log('---------------total')
-            console.log(total)
+         //   console.log('---------------total')
+         //   console.log(total)
            dispatch(setTotalEquity(total)) // final total equity ( TOTAL PROFIT + MODAL)
             setTableContent(newArray)
 

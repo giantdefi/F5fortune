@@ -46,7 +46,7 @@ export default function Users() {
        .then(async response => {
 
            const data = response.data.data
-           console.log(data)
+       //    console.log(data)
           dispatch(setMypackages(data)) 
 
        }).catch(function (error) {
@@ -70,7 +70,7 @@ export default function Users() {
                 <meta name="description" content={desc} />
             </Head>
 
-            <div className="md:pt-12  min-h-screen">
+            <div className="md:pt-12  min-h-screen ">
 
             <div className="flex justify-center  w-md items-center h-12 fixed top-[90px] md:top-[55px] md:right-0 z-10 bg-gray-900  ">
             <div className=" z-10 w-[450px] centered flex flex-row  h-12 ">
@@ -81,10 +81,10 @@ export default function Users() {
             {/* <div className="h-[300px] bg-sky-700 flex  fixed w-full max-w-md lg:max-w-full"> </div> */}
           
 
- <section className="bg-white dark:bg-gray-900 mt-20 lg:mt-20">
+ <section className="bg-gray-100 dark:bg-gray-900 mt-20 lg:mt-20">
   <div className="py-8 px-4 mx-auto  lg:py-16 lg:px-6">
       <div className="mx-auto max-w-screen-lg text-center mb-8 lg:mb-12">
-          <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">My Active Packages</h2>
+          <h2 className="mb-4 text-4xl tracking-tight bold text-gray-900 dark:text-white">My Active Packages</h2>
           
       </div>
       <div className="mx-auto max-w-7xl  px-4">

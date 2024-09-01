@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 
 //--- redux store---------------------------------------
 import { useSelector, useDispatch } from 'react-redux';
-import { setWDWalletAmount,  } from 'redux/reducers/FormReducer';
+import { setDepositAmount  } from 'redux/reducers/FormReducer';
 import { setError } from 'redux/reducers/ErrorReducer';
 import { setPlaySound } from 'redux/reducers/SoundReducer';
 //-------------------------------------------------------
@@ -14,7 +14,7 @@ export default function WDAmount() {
 
     // redux store
     const dispatch = useDispatch();
-    const { wdWalletAmount, walletAddr } = useSelector((state) => state.FormReducer)
+    const { depositAmount, walletAddr } = useSelector((state) => state.FormReducer)
     const { formError } = useSelector((state) => state.ErrorReducer)
     const { e_wallet } = useSelector((state) => state.AuthReducer)
 
@@ -27,11 +27,7 @@ export default function WDAmount() {
         const re = /^[0-9]*\.?[0-9]*$/;
         if (re.test(value)) {
             if (value.length <= 6) {
-                dispatch(setWDWalletAmount(value))
-            }
-            if (value > e_wallet) {
-                dispatch(setPlaySound('error'))
-                return dispatch(setError({ path: "wdWalletAmount", message: 'Exceed E Wallet balance!' }))
+                dispatch(setDepositAmount(value))
             }
         }
     }
@@ -58,20 +54,17 @@ export default function WDAmount() {
                 <div className="relative w-full mb-3">
 
                     <div className="flex justify-between mb-2 text-white">
-                        <p className="mb-2 text-sm text-white">WD EWallet Amount</p>
-                        <div className="flex justify-between gap-2">
-                            <button onClick={handleMaxBalance} className="_gradient_gold mb-2 text-sm border  px-4 rounded-sm "> MAX </button>
-                            <button onClick={handleMaxReset} className="mb-2 text-sm border px-2 rounded-sm"> Reset </button>
-                        </div>
+                        <p className="mb-2 text-sm text-white">Deposit Amount</p>
+                       
                     </div>
 
                     <input type="text" className=" bg-gray-800 w-full text-white border border-gray-500 rounded-md py-2 px-3" ref={inputRef}
-                        name="wdWalletAmount"
-                        value={wdWalletAmount || ''}
+                        name="depositAmount"
+                        value={depositAmount || ''}
                         onChange={handleChange}
 
                     />
-                    {formError && formError.path === 'wdWalletAmount' ?
+                    {formError && formError.path === 'depositAmount' ?
                         <p className="text-yellow-300 ml-2 mt-2 text-sm">
                             {/* <span className="animate-ping inline-flex h-3 w-3 rounded-full bg-red-100 opacity-75 mr-2" /> */}
                             <i className="icofont-arrow-right animate-ping  mr-2"></i>

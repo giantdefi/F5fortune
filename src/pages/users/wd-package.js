@@ -109,7 +109,7 @@ export default function Withdrawal() {
                         </div>}
 
 
-                        <button onClick={handleCancelWD} className="border mt-10 px-3 py-1 rounded-full text-sm bg-red-800"> CANCEL WITHDRAWAL</button>
+                        <button onClick={handleCancelWD} className="border-2 text-white mt-10 px-3 py-1 rounded-full text-sm bg-red-800"> CANCEL WITHDRAWAL</button>
 
                     </div>
                   

@@ -6,9 +6,8 @@ import Head from 'next/head'
 
 import dynamic from 'next/dynamic'
 import Wallet from "components/wallet"
-import DepoAmount from "components/inputforms/deposit/DepoAmount"
-import AdmWalletAddress from "components/inputforms/deposit/AdmWalletAddress"
-import TXhash from "components/inputforms/deposit/TXhash"
+import WDAmount from "components/inputforms/withdrawal/WDAmount"
+import WalletAddress from "components/inputforms/withdrawal/WalletAddress"
 //---- REDUX STORE ---------------------
 import { useSelector, useDispatch } from 'react-redux'
 import { setModalToast, setModalMessage,setModalConfirmBuyPackage  } from 'redux/reducers/ModalReducer';
@@ -26,7 +25,7 @@ export default function Users() {
     const { isLogin, e_wallet, r_wallet,userid, token } = useSelector((state) => state.AuthReducer)
 
     const { depositAmount, transactionHash } = useSelector((state) => state.FormReducer)
-    const { admin_wallet } = useSelector((state) => state.ConstantReducer)
+
 
     useEffect(() => {
 
@@ -38,10 +37,10 @@ export default function Users() {
     }, [])
 
    const handleDepoRequest = () => {
-  
+    alert()
     setSpinner(true)
          const data = {
-        depositAmount,transactionHash, admin_wallet, userid 
+        depositAmount,transactionHash, userid 
         }
   
    
@@ -51,7 +50,7 @@ export default function Users() {
        }
        if(!transactionHash){
         setSpinner(false)
-        return dispatch(setError({ path: "transactionHash", message: 'Transaction Hash is required' }))
+        return dispatch(setError({ path: "transactionHash", message: 'Tx Hash is required' }))
        }
    
 
@@ -60,7 +59,7 @@ export default function Users() {
 
         const URL = process.env.NEXT_PUBLIC_API_URL_V1
         return axios({
-            url: `${URL}/users/deposit`,
+            url: `${URL}/users/wd-request`,
             method: 'POST',
             data,
             'headers': {
@@ -74,10 +73,16 @@ export default function Users() {
                 setSpinner(false)
                 const data = response.data
 
-                if (data.isSuccess) {
-                      return   dispatch(setModalToast({ type: response.data.type, title: response.data.title, message: response.data.message }))
+                console.log(data)
+console.log(data.e_wallet)
+                if(data.e_wallet){
+                    dispatch(setEWallet(data.e_wallet))
                 }
 
+                 return   dispatch(setModalToast({ type: response.data.type, title: response.data.title, message: response.data.message }))
+
+
+              
                 setSpinner(false)
 
             }).catch(function (error) {
@@ -106,9 +111,8 @@ export default function Users() {
             </div>                 
             </div>
 
-            <div className="flex flex-col justify-between items-center ">
-            <h4 className="font-semibold  uppercase text-4xl mx-auto ">DEPOSIT REQUEST</h4>
-            <p>Deposit Confirmation</p>
+            <div className="flex flex-row justify-between items-center ">
+            <h4 className="font-semibold  uppercase text-4xl mx-auto ">WD REQUEST</h4>
           </div>
 
          
@@ -116,11 +120,10 @@ export default function Users() {
 
             <div className="md:w-1/2 mx-auto border mt-10 py-5 border-gray-700 bg-gray-900 rounded-xl mt-10">
 
+<WDAmount />
 
+<WalletAddress />
 
-<AdmWalletAddress />
-<DepoAmount />
-<TXhash/>
 
 
 
@@ -137,7 +140,7 @@ export default function Users() {
         <button onClick={handleDepoRequest}
             className="_btn_submit_green w-[90%] mb-5 text-xl mx-auto py-2 mt-5 border-4 border-gray-200  flex justify-center items-center">
             <i className="icofont-rounded-double-right  mr-2 text-2xl"></i>
-           SEND REQUEST
+           SEND REQUEST 123
         </button>
 
 
