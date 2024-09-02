@@ -109,7 +109,7 @@ export default function Users() {
            
 
             <div className="flex flex-col justify-between items-center ">
-            <h4 className="font-semibold  uppercase text-4xl mx-auto ">DEPOSIT REQUEST</h4>
+            <h4 className="font-semibold  uppercase text-4xl mx-auto ">DEPOSIT WALLET</h4>
             <p>Deposit Confirmation</p>
           </div>
 

@@ -100,7 +100,7 @@ const Shorter = (account) => {
  <section className=" dark:bg-gray-900 mt-20 lg:mt-20">
   <div className="py-8 px-4 mx-auto  lg:py-16 lg:px-6 text-white">
       <div className="mx-auto max-w-screen-lg text-center mb-8 lg:mb-12">
-          <h2 className="mb-4 text-4xl tracking-tight bold text-gray-100 ">History Deposit Request</h2>
+          <h2 className="mb-4 text-4xl tracking-tight bold text-gray-100 ">History Deposit WALLET</h2>
         
           <p></p>
       </div>
