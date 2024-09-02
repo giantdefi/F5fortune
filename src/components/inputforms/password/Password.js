@@ -52,7 +52,7 @@ export default function Password() {
         <>
 
             <div className="flex justify-between text-white">
-                <p className="mb-2 "> Enter Password   </p>
+                <p className="mb-2 "> Enter Login Password   </p>
                 {!showPassword ?
                     <div onClick={togglePassword} className="flex justify-center items-center cursor-pointer">
                         <p className="text-sm"> Hide </p><p>   <i className="icofont-eye-blocked text-xl ml-2" /></p>

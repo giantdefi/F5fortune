@@ -33,6 +33,9 @@ const initialState = {
   currentpassword : false,
   newPassword : false,
   newPasswordConfirm : false,
+ // change email
+  currentemail : false,
+  newEmail : false,
 
 }
 
@@ -61,6 +64,12 @@ export const FormSlice = createSlice({
         },
         setFormEmail: (state, action) => {
             state.email = action.payload
+        },
+        setCurrentemail: (state, action) => { 
+            state.currentemail = action.payload 
+        },
+        setNewEmail: (state, action) => {
+            state.newEmail = action.payload
         },
         setFormPassword: (state, action) => {
             state.password = action.payload
@@ -110,7 +119,7 @@ export const {  resetForm,
     setFormSponsor, setFormName, setFormUsername, setFormPhone, setFormPassword,  
     setFormConfirmPassword, setFormEmail, setConfirmPassword, setCountry ,
     setCurrentpassword, setNewPassword, setNewPasswordConfirm, setFirstName, setLastName,
-    setWDWalletAmount, setWDCryptoAddress, setTransactionHash, setDepositAmount
+    setWDWalletAmount, setWDCryptoAddress, setTransactionHash, setDepositAmount, setCurrentemail, setNewEmail
 
 } = FormSlice.actions
 

@@ -301,7 +301,14 @@ export default function SidebarBody() {
                 <a onClick={()=>router.push('/users/change-password')} className={` flex flex-row items-center h-10  pl-6 
                     ${itemSelected === 14 && dropdownOpen === 6 && 'bg-white bg-opacity-10'}`}>
                   <p className="text-sm ">
-                    <i className="icofont-lock text-lg mr-1 text-yellow-300 hover:text-green-300"></i> Login Password</p>
+                    <i className="icofont-lock text-lg mr-1 text-yellow-300 hover:text-green-300"></i> Change Login Password</p>
+                </a>
+              </li>
+              <li className="cursor-pointer hover:text-green-300">
+                <a onClick={()=>router.push('/users/change-email')} className={` flex flex-row items-center h-10  pl-6 
+                    ${itemSelected === 14 && dropdownOpen === 6 && 'bg-white bg-opacity-10'}`}>
+                  <p className="text-sm ">
+                    <i className="icofont-email text-lg mr-1 text-yellow-300 hover:text-green-300"></i> Change Email</p>
                 </a>
               </li>
               <li>

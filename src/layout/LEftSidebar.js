@@ -177,17 +177,23 @@ return (
             <li>
                      <button onClick={()=>handleClickMenu('/users/change-password')} class="ml-6">
                          <i className="icofont-lock text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>
-                        Login Password</button>
+                        Change Password</button>
+                  </li>
+
+                  <li>
+                     <button onClick={()=>handleClickMenu('/users/change-email')} class="ml-6">
+                         <i className="icofont-email text-2xl mr-2 text-yellow-300 hover:text-green-300"></i>
+                        Change Eamil</button>
                   </li>
                
                 
                   <li>
                   <button onClick={handleSound} className="cursor-pointer flex flex-row items-center h-10  pl-6 " >
                     
-                    <span className="text-sm ">
+                    <span className="text-1xl">
                       {allowSound ?
                         <i className="icofont-audio text-3xl mr-2 text-green-400 "></i> :
-                        <i className="icofont-ui-mute text-3xl mr-2 text-green-400"></i>
+                        <i className="icofont-ui-mute text-3xl mr-2 text-yellow-400"></i>
                       } Sound Setting
                     </span>
                   </button> 
