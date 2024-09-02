@@ -67,15 +67,16 @@ export default function Refferals() {
         })
             .then(async response => {
 
-             //   console.log(response.data)
+               console.log(response.data)
 
                 if (response.data.isSuccess) {
-                    dispatch(setPlaySound('error'))
+                   // dispatch(setPlaySound('error'))
                     if(response.data.data.length){
-                        dispatch(setCountMyDownlines(response.data.data[0].direct_refs))
-                        dispatch(setMyDownlinesArray(response.data.data))
-                        dispatch(setCountMyDownlines(response.data.data[0].direct_refs))
-                       // dispatch(setMyDownlineLevel(stats))
+                   dispatch(setMyDownlinesArray(response.data.data))    
+                   dispatch(setCountMyDownlines(response.data.data[0].direct_refs))
+                    }else{
+                        dispatch(setMyDownlinesArray(false))    
+                        dispatch(setCountMyDownlines(false)) 
                     }
                 }
                 setSpinner(false)
@@ -120,6 +121,8 @@ export default function Refferals() {
 
             console.log('last')
             console.log(last)
+          
+          
             if(!last){
                 dispatch(setGetUsername(userid)) // can use local actually
             }else{
@@ -205,7 +208,7 @@ export default function Refferals() {
                                 }
 
                         <table className="w-full text-sm text-left text-gray-500 mt-2">
-                            <thead className="text-sm text-white uppercase bg-gray-700 border-b border-gray-600">
+                            <thead className="text-sm text-white uppercase bg-blue-900 border-b border-gray-600">
 
                             <tr>
                                                     <th className="py-3 text-center"> UserID</th>
@@ -218,7 +221,7 @@ export default function Refferals() {
 
                                 {!spinner && myDownlinesArray && myDownlinesArray.map((item, index) => {
                                     return (
-                                        <tr className="bg-gray-800 text-white h-12 border-b border-gray-600" key={index}>
+                                        <tr className="bg-gray-700 text-white h-12 border-b border-gray-600" key={index}>
                                             <td className="text-center text-sm">
                                                 {item.userid}
                                                 {/* {index === 0 && <span className="ml-2">*</span>} */}

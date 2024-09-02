@@ -127,7 +127,7 @@ return (
 
             {!spinner && myRefBonusArray && myRefBonusArray.map((item, index) => {
                 return (
-                    <tr className="bg-gray-800 text-white h-12 border-b border-gray-600" key={index}>
+                    <tr className="bg-gray-700 text-white h-12 border-b border-gray-600" key={index}>
                         <td className="text-center text-sm">
                             {item.from_user}
                             {/* {index === 0 && <span className="ml-2">*</span>} */}

@@ -86,15 +86,16 @@ export default function Users() {
             {/* <div className="h-[300px] bg-sky-700 flex  fixed w-full max-w-md lg:max-w-full"> </div> */}
           
 
- <section className=" dark:bg-gray-900 mt-20 lg:mt-20">
-  <div className="py-8 px-4 mx-auto  lg:py-16 lg:px-6 text-white">
+ <section className=" dark:bg-gray-900 mt-20 lg:mt-20 ">
+ 
+  <div className="py-8  mx-auto  lg:py-16 lg:px-6 text-white">
       <div className="mx-auto max-w-screen-lg text-center mb-8 lg:mb-12">
           <h2 className="mb-4 text-4xl tracking-tight bold text-gray-100 ">History WD Request</h2>
           <p>Total Request : {app_currency} {WDCashTotal > 0? parseFloat(WDCashTotal).toLocaleString(2) : '0'}</p>
           <p>Total WD Paid : {app_currency} {totalWDPaid > 0? parseFloat(totalWDPaid).toLocaleString(2) : '0'}</p>
           <p></p>
       </div>
-      <div className="mx-auto max-w-7xl  px-4">
+      <div className="mx-auto max-w-7xl ">
   
 
       <p>Latest 50 transactions</p>
@@ -109,11 +110,11 @@ export default function Users() {
                                     <th className="py-3 text-center"> Paid Time</th>
                                 </tr>
             </thead>
-            <tbody >
+            <tbody className="bg-blue-900">
 
                 {!spinner && WDCashArray && WDCashArray.map((item, index) => {
                     return (
-                        <tr className="bg-gray-800 text-white h-12 border-b border-gray-600" key={index}>
+                        <tr className="bg-gray-700 text-white h-12 border-b border-gray-600" key={index}>
                             <td className="text-center text-xs">
                             {index+1}
                             </td>

@@ -54,9 +54,9 @@ const handlePageMovePrev = () => {
 }
 
 
-console.log('startNo= '+startNo)
-console.log('start= '+start)
-console.log('limit= '+limit)
+// console.log('startNo= '+startNo)
+// console.log('start= '+start)
+// console.log('limit= '+limit)
 
 //========================================================   
 async function loadData(start=0, limit=100) {  // default start limit
@@ -92,7 +92,7 @@ async function loadData(start=0, limit=100) {  // default start limit
                  
                     const data = response.data.data
                 
-                    console.log(data)
+                  //  console.log(data)
                     dispatch(setTotalMatchingBonus(response.data.total))
                     dispatch(setMyMatchingBonusArray(data))
                     dispatch(setTotalTx( response.data.totalTx))
@@ -156,7 +156,7 @@ async function loadData(start=0, limit=100) {  // default start limit
 
                 {!spinner && myMatchingBonusArray && myMatchingBonusArray.map((item, index) => {
                     return (
-                        <tr className="bg-gray-800 text-white h-12 border-b border-gray-600" key={index}>
+                        <tr className="bg-gray-700 text-white h-12 border-b border-gray-600" key={index}>
                             <td className="text-center text-xs">
                             {index+startNo}
                             </td>
