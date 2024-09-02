@@ -11,50 +11,23 @@ import { setError } from 'redux/reducers/ErrorReducer'
 export default function Username() {
 
     const inputRef = useRef()
-
-    // redux store
     const dispatch = useDispatch();
     const { lastName } = useSelector((state) => state.FormReducer)
     const { formError } = useSelector((state) => state.ErrorReducer)
 
-
-    // handle on input value change
     const handleChange = async (e) => {
         dispatch(setError(false))
         const { name, value } = e.target
         if (value.length <= 10) {
-            const re = /^[0-9a-zA-Z]*$/
-            if (re.test(value)) {
-                if (value.length <= 10) {
-
-                  //  const userUppercase = (value.toUpperCase().trim())
-                    dispatch(setLastName(value))
-
-                                  
-                }
-            }
+             dispatch(setLastName(value))
         }
     }
-
-    // Focus input element on submit if no value
-    useEffect(() => {
-        if (formError && formError.path === 'lastName') {
-            //    inputRef.current.focus()
-            // inputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }) // make it on center of the screen 
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [formError])
-
-    // const handleModalKeyboard = () => {
-    //     dispatch(setModalKeyboardUsername(true))
-    // }
 
     return (
         <>
 
-
 <div className="relative z-0 w-full mb-4 group">
-      <input type="text"   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required 
+      <input type="text"   className="block py-4 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required 
       name="lastName"
       value={lastName || ''}
       onChange={handleChange}

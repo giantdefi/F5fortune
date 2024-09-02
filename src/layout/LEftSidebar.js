@@ -9,6 +9,7 @@ import { setLoginSidebar, setLeftSidebar } from 'redux/reducers/MainmenuReducer'
 import { setAllowSound } from 'redux/reducers/SettingReducer'
 import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { setdropdownOpen } from 'redux/reducers/DrawerReducer'
+import { setShowLogin } from 'redux/reducers/SidebarReducer'
 //--------------------------------------
 
 export default function Home() {
@@ -21,12 +22,19 @@ export default function Home() {
   const { allowSound } = useSelector((state) => state.SettingReducer)
   const { dropdownOpen } = useSelector((state) => state.DrawerReducer)
 
-const handleClickMenu = (link) => {
+const handleHomepage = () =>{
+   dispatch(setLeftSidebar(false))
+   router.push('/')
+}
 
+const handleClickMenu = (link) => {
+  
+   dispatch(setShowLogin(true))
    dispatch(setLeftSidebar(false))
   dispatch(setPlaySound('click'))
    if(!isLogin){
       dispatch(setLoginSidebar(true))
+      dispatch(setShowLogin(true))
    }else{
       router.push(link)
    }
@@ -69,13 +77,19 @@ return (
 
          
          <li>
-            <button onClick={()=>handleClickMenu('/')} class="flex items-center p-2  text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-            <i className="icofont-home mr-4 text-2xl"></i>
+            <button onClick={handleHomepage} class="bg-gray-900/30 flex w-full items-center p-4  text-white rounded-lg dark:text-white group">
+            <i className="icofont-monitor mr-4 text-2xl"></i>
+               <span class="ms-3">Main Page</span>
+            </button>
+         </li>
+         <li>
+            <button onClick={()=>handleClickMenu('/users')} class="bg-gray-900/30 flex w-full items-center p-4  text-white rounded-lg dark:text-white group">
+            <i className="icofont-pie-chart text-purple-400 mr-4 text-2xl"></i>
                <span class="ms-3">Dashboard</span>
             </button>
          </li>
          <li>
-            <button onClick={()=>handleDropdownOpen(1)}  class="flex items-center w-full p-2 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
+            <button onClick={()=>handleDropdownOpen(1)}  class="bg-gray-900/30 flex items-center w-full p-4 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
             <svg class="flex-shrink-0 w-5 h-5 text-white transition duration-75 dark:text-gray-400 group-hover: text-white dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                   <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
                </svg>
@@ -84,7 +98,7 @@ return (
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                   </svg>
             </button>
-            <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 1 ? '' : 'hidden'} `}>
+            <ul  class={` py-2 space-y-6 py-6 bg-gray-700/30 animated fadeIn ${dropdownOpen === 1 ? '' : 'hidden'} `}>
                   <li>
                      <button onClick={()=>handleClickMenu('/users/packages')} class="ml-6"><i class="icofont-arrow-right"></i>Packages</button>
                   </li>
@@ -97,14 +111,14 @@ return (
          </li>
 
          <li>
-            <button onClick={()=>handleDropdownOpen(2)}  class="flex items-center w-full p-2 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
+            <button onClick={()=>handleDropdownOpen(2)}  class="bg-gray-900/30 flex items-center w-full p-4 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
             <i className="icofont-electron text-red-300 text-2xl"></i>
                   <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap ml-4  text-white">TRANSACTIONS</span>
                   <svg class={`w-3 h-3 ${dropdownOpen === 2 ? '' : '-rotate-90'} `} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                   </svg>
             </button>
-            <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 2 ? '' : 'hidden'} `}>
+            <ul  class={`  py-2 space-y-6 py-6 bg-gray-700/30 animated fadeIn ${dropdownOpen === 2 ? '' : 'hidden'} `}>
             <li>
                      <button onClick={()=>handleClickMenu('/users/deposit')} class="ml-6 "><i class="icofont-arrow-right"></i>Deposit Wallet</button>
                   </li>
@@ -122,16 +136,14 @@ return (
          </li>
 
          <li>
-         <button onClick={()=>handleDropdownOpen(3)}  class="flex items-center w-full p-2 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
-            <svg class={`w-3 h-3 ${dropdownOpen === 3 ? '' : '-rotate-90'} `} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                  <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
-               </svg>
+         <button onClick={()=>handleDropdownOpen(3)}  class="bg-gray-900/30 flex items-center w-full p-4 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
+         <i class="icofont-coins text-2xl text-green-400"></i>
                   <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap ml-4">BONUS</span>
                   <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                   </svg>
             </button>
-            <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 3 ? '' : 'hidden'} `}>
+            <ul  class={`py-2 space-y-6 py-6 bg-gray-700/30 animated fadeIn ${dropdownOpen === 3 ? '' : 'hidden'} `}>
            
             <li>
                      <button onClick={()=>handleClickMenu('/users/referrals')} class="ml-6"><i class="icofont-users mr-4"></i>My Referrals</button>
@@ -153,16 +165,15 @@ return (
 
 
          <li>
-         <button onClick={()=>handleDropdownOpen(4)}  class="flex items-center w-full p-2 text-base  text-white transition duration-75 rounded-lg group  dark:text-white " >
-            <svg class={`w-3 h-3 ${dropdownOpen === 4 ? '' : '-rotate-90'} `} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                  <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
-               </svg>
+         <button onClick={()=>handleDropdownOpen(4)}  class="bg-gray-900/30 flex items-center w-full p-4 text-base  
+         text-white transition duration-75 rounded-lg group  dark:text-white " >
+          <i className="icofont-gear text-2xl text-sky-400"></i>
                   <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap ml-4">SETTTINGS</span>
                   <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                   </svg>
             </button>
-            <ul  class={` py-2 space-y-6 animated fadeIn ${dropdownOpen === 4 ? '' : 'hidden'} `}>
+            <ul  class={`py-2 space-y-6 py-6 bg-gray-700/30 animated fadeIn ${dropdownOpen === 4 ? '' : 'hidden'} `}>
             <li>
                      <button onClick={()=>handleClickMenu('/users/change-password')} class="ml-6">
                          <i className="icofont-lock text-2xl mr-1 text-yellow-300 hover:text-green-300"></i>

@@ -23,7 +23,6 @@ export default function Sponsor() {
     // IF HAS REF LINK
     useEffect(() => { // referal sponsor from URL if any
 
-
        if (refLink) {
             setTimeout(() => {
                 dispatch(setFormSponsor(refLink))
@@ -33,7 +32,6 @@ export default function Sponsor() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refLink, loginSidebar])
 
-    // handle on input value change
     const handleChange = (e) => {
         dispatch(setError(false))
 
@@ -42,33 +40,22 @@ export default function Sponsor() {
             dispatch(setFormSponsor((value.toUpperCase()).trim()))
         }
     }
-
-    // Focus input element on submit if no value
-    useEffect(() => {
-        if (formError && formError.path === 'sponsor') {
-            //   inputRef.current.focus()
-           // inputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }) // make it on center of the screen
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [formError])
-
-    // const handleModalKeyboard = () => {
-    //     dispatch(setModalKeyboardSponsor(true))
-    // }
-
   
     return (
         <>
           <div className="relative z-0 w-full mb-4 group">
-      <input type="text"   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required 
+    
+
+    <div className="flex justify-between ">
+                        <p className="text-sm ">Your Sponsor or Get from Referral Link</p>
+                    </div>
+
+      <input type="text"   className="block py-4 px-0 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required 
       name="sponsor"
       value={sponsor || ''}
       onChange={handleChange}
       />
-      <label  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400
-       duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4
-        rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100
-         peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Sponsor or Get from Referral Link</label>
+   
 
   {formError && formError.path === 'sponsor' &&     
     <p className="text-red-800 ml-2 text-sm animated backInLeft items-center flex">

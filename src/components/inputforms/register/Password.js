@@ -11,32 +11,18 @@ export default function Password() {
 
     const inputRef = useRef()
     const [showPassword, setShowPassword] = useState(false)
-    // redux store
     const dispatch = useDispatch();
     const { password } = useSelector((state) => state.FormReducer)
     const { formError } = useSelector((state) => state.ErrorReducer)
 
 
-    // handle on input value change
     const handleChange = (e) => {
         dispatch(setError(false))
-
-
         const { name, value } = e.target
         if (value.length <= 20) {
             dispatch(setFormPassword(value))
         }
     }
-
-    // Focus input element on submit if no value
-    useEffect(() => {
-        if (formError && formError.path === 'password') {
-            // inputRef.current.focus()
-            // inputRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }) // make it on center of the screen 
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [formError])
-
 
     const togglePassword = () => {
         if (showPassword) {
@@ -68,7 +54,7 @@ export default function Password() {
     </div>
 
     <div className="relative z-0 w-full group">
-      <input  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-60 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+      <input  className="block py-2.5 px-4 w-full text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-60 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
       placeholder=" " 
       type ={!showPassword ? "password" : "text"}
       name="password"
