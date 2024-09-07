@@ -22,7 +22,7 @@ export default function Users() {
     const dispatch = useDispatch() 
     const { app_currency} = useSelector((state) => state.ConstantReducer)
     const { mainSidebarOpen } = useSelector((state) => state.MainmenuReducer)
-    const { isLogin, e_wallet, r_wallet, wd_request, total_wd_paid } = useSelector((state) => state.AuthReducer)
+    const { isLogin, userid, e_wallet, r_wallet, wd_request, total_wd_paid } = useSelector((state) => state.AuthReducer)
    // const { WDCashArray, WDCashTx, WDCashTotal,totalWDPaid } = useSelector((state) => state.HistoryReducer)
   
     
@@ -142,7 +142,10 @@ export default function Users() {
 
                     </div> */}
 
-<div className="min-h-screen  w-full pb-20 px-10">
+<div className="min-h-screen  w-full pb-20 pt-10">
+
+  <p className="bold mb-2 text-lg">Your userID : {userid}</p>
+  <h3>Your referrals Link : https://fivefortunefx.com?ref={userid}</h3>
  
 
  <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4 mt-10 w-full ">

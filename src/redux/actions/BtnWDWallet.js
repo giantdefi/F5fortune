@@ -9,7 +9,7 @@ import { setModalMessage } from 'redux/reducers/ModalReducer';
 import { setPlaySound } from 'redux/reducers/SoundReducer';
 import { resetPackage } from 'redux/reducers/PackageReducer';
 import { resetStatement } from 'redux/reducers/StatementReducer';
-import { setEWallet } from 'redux/reducers/AuthReducer';
+import { setEWallet, setRWallet } from 'redux/reducers/AuthReducer';
 //--------------------------------------
 
 export default function BtnConvertProfitToWallet() {
@@ -56,14 +56,17 @@ export default function BtnConvertProfitToWallet() {
                 const wallets = data.wallet
                 console.log(wallets)
                 const ewallet = wallets[0].e_wallet
+                const rwallet = wallets[0].r_wallet
                 console.log(ewallet)
+                console.log(rwallet)
 
                 if (data.isSuccess) {
 
                     dispatch(resetPackage())
                     dispatch(resetStatement())
                     dispatch(setEWallet(ewallet))
-
+                    dispatch(setRWallet(rwallet))
+                    
                     
 
                   

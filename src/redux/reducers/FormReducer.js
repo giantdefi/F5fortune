@@ -2,16 +2,16 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     // registration form
-    sponsor: 'FX10001',
-    name : 'jhon Doe',
+    sponsor: false,
+    name : false,
     username: false,
-    email: 'master@gmail.com', // for test send email
-    phone: '+612345678900',
-    password: 'T123t123!@#',
-    confirmPassword: 'T123t123!@#',
+    email: false, // for test send email
+    phone: false,
+    password: false,
+    confirmPassword: false,
     country : false,
-    firstName : 'jhon ',
-    lastName : ' Doe',
+    firstName : false,
+    lastName : false,
 
     //forgot pass
   

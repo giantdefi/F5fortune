@@ -178,9 +178,13 @@ async function loadData(start=0, limit=100) {  // default start limit
                        
                         </tr>
                     )
-                })}
+                })} 
 
-
+ {!spinner && !myMatchingBonusArray.length &&
+            <tr className="bg-gray-800 text-white text-center h-12 border-b border-gray-600">
+            <td colSpan={6} className="text-sm">No transactions  found!</td>
+        </tr>
+        }
 
             </tbody>
         </table>
@@ -198,11 +202,7 @@ async function loadData(start=0, limit=100) {  // default start limit
 
         }
 
-        {!spinner && !myMatchingBonusArray.length &&
-            <div className="text-center">
-                <p className="pt-10">Sorry, no matching bonus found!</p>
-            </div>
-        }
+       
             <div className="text-center">
                 <p className="pt-10 text-sm">Users will get matching bonus when their downlines make withdrawal from their package ROI to wallets.</p>
             </div>

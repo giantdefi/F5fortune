@@ -102,8 +102,17 @@ export default function Users() {
           $<span id="basicPlanPrice">{item.value}</span>
         </p> */}
         <div className="flex-col">
+        {item.completed?
+          <button  className="shadow-lg mt-3 block w-full rounded-md border border-red-800
+           bg-red-800 py-2 text-center text-sm font-semibold text-white hover:bg-red-900">
+            COMPLETED
+            </button>:
           <button onClick={()=>handleDetailPackage(item)} className="shadow-lg mt-3 block w-full rounded-md border border-blue-800
-           bg-blue-800 py-2 text-center text-sm font-semibold text-white hover:bg-blue-900">SEE PROGRESS →</button>
+          bg-blue-800 py-2 text-center text-sm font-semibold text-white hover:bg-blue-900">
+          SEE PROGRESS →
+           </button>
+         }
+
         </div>
       </div>
       <div className="px-6 pt-2 pb-8">

@@ -8,7 +8,8 @@ import BtnWDWallet from "redux/actions/BtnWDWallet";
 //--- redux store---------------------------------------
 import { setPlaySound } from 'redux/reducers/SoundReducer'
 import { useSelector, useDispatch } from 'react-redux';
-import { setWDAmounts, setWDType, setMyPackageDetail, setSelectedActPackID } from 'redux/reducers/PackageReducer';
+   // const { myPacakges,  } = useSelector((state) => state.PackageReducer)
+    import { setWDAmounts, setWDType, setMyPackageDetail, setSelectedActPackID } from 'redux/reducers/PackageReducer';
 
 //--------------------------------------
 
@@ -20,8 +21,8 @@ export default function Withdrawal() {
     const router = useRouter()
     const dispatch = useDispatch();
     const { isLogin, username } = useSelector((state) => state.AuthReducer)
-    const { runningDays, effectiveDays } = useSelector((state) => state.StatementReducer)
-    const { selectedActPackID, selectedPackName, selectedPackValue, wdAmmounts } = useSelector((state) => state.PackageReducer)
+    const { runningDays, effectiveDays, availabletoWDDays } = useSelector((state) => state.StatementReducer)
+    const { selectedActPackID, selectedPackName, selectedPackValue, wdAmmounts, detailPackage } = useSelector((state) => state.PackageReducer)
     const {  splittoEWallet,splittoRwallet } = useSelector((state) => state.ConstantReducer)
 
     useEffect(() => {
@@ -59,6 +60,8 @@ export default function Withdrawal() {
         dispatch(setPlaySound('pling'))
     }
 
+    console.log(effectiveDays)
+
     return (
         <>
 
@@ -86,8 +89,11 @@ export default function Withdrawal() {
                         <div className="text-center text-white">
                             <h4 >{selectedPackName}-{selectedPackValue}</h4>
                             <h4 >Package Id : # {selectedActPackID}</h4>
-                            <p className="mt-2">WD Amount : {parseFloat(wdAmmounts).toFixed(2)} USDT</p>
+                            <p className="mt-2 bold text-green-400">WD Amount : {parseFloat(wdAmmounts).toFixed(2)} USDT</p>
                             <p > WD at Runnning :  Day-{runningDays}</p>
+                            <p>Total Last WD days : {detailPackage.wd_days} days  </p>
+                            <p > Withdrawal days :  {availabletoWDDays} days</p>
+                          
                         </div>
 
                         <div className="text-center text-white lg:w-1/2 mx-auto border px-12 py-5 mt-5 pb-10 rounded-xl bg-slate-800">
@@ -95,11 +101,13 @@ export default function Withdrawal() {
                             <p className="mb-2">Your WD amount will be converted to :</p>
                             <p>{splittoEWallet}% EWallet :  {parseFloat(wdAmmounts* splittoEWallet/100).toFixed(2)} USDT</p>
                             <p>{splittoRwallet}% RWallet :  {parseFloat(wdAmmounts*splittoRwallet/100).toFixed(2)} USDT</p>
-                            {effectiveDays - runningDays <= 0 ?
+                          
+                            {90 - (effectiveDays - runningDays) <= 0 ?
                                 <p className="mt-2">Your package will be : <br />  COMPLETED! <br />Thank you for your participation</p>
                                 :
-                                <p className="mt-2">Available for next withdrawal <br />  {effectiveDays - runningDays} days</p>
+                                <p className="mt-2">Available for next withdrawal <br />  {90 - (detailPackage.wd_days + availabletoWDDays)} days</p>
                             }
+                       
                             <button onClick={handleAgree}
                                 className="border-2 border-gray-300 mt-5 px-6 py-1 rounded-full  bg-green-800"> YES, I AGREE</button>
                         </div>

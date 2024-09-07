@@ -213,7 +213,7 @@ export default function Refferals() {
                             <tr>
                                                     <th className="py-3 text-center"> UserID</th>
                                                     <th className="py-3 text-center"> Status</th>
-                                                    <th className="py-3 text-center">  Active Time</th>
+                                                    <th className="py-3 text-center">  Join Time</th>
                                                     <th className="py-3 text-center"> Refs</th>
                                                 </tr>
                             </thead>

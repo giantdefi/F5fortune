@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setModalMessage, setModalConfirmBuyPackage, setModalToast } from 'redux/reducers/ModalReducer'
 import { setError } from 'redux/reducers/ErrorReducer'
 
-import { setEWallet } from 'redux/reducers/AuthReducer'
+import { setEWallet, setRWallet, setIsActive } from 'redux/reducers/AuthReducer'
 
 
 //--------------------------------------
@@ -54,7 +54,9 @@ export default function BtnActivateBinary() {
 
                 if (data.isSuccess) {
                     setSpinner(false)
-                    dispatch(setEWallet(response.data.wallet.e_wallet))
+                    console.log(response.data.e_wallet)
+                    dispatch(setEWallet(response.data.e_wallet))
+                    dispatch(setIsActive(1))
                     dispatch(setModalConfirmBuyPackage(false))
                     dispatch(setPlaySound('success'))
                  return   dispatch(setModalToast({ type: response.data.type, title: response.data.title, message: response.data.message }))

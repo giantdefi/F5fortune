@@ -148,18 +148,18 @@ return (
                 )
             })}
 
-
+  {!spinner && !myRefBonusArray.length && 
+        <tr className="bg-gray-800 text-white text-center h-12 border-b border-gray-600">
+        <td colSpan={6} className="text-sm">No transactions  found!</td>
+    </tr>
+    }
 
         </tbody>
     </table>
 
  
 
-     {!spinner && !myRefBonusArray.length && 
-        <div className="text-center">
-            <p className="pt-10 text-white">Opss, no referral data found!</p>
-        </div>
-    }
+   
         <div className="text-start mx-auto ">
             <p className="pt-10 text-sm text-center text-white">Users will get sponsor bonus when their downlines buy a package or add more package. </p>
             <p className="text-sm mx-auto text-white text-center"> Users can have multyple packages in a single account.</p>

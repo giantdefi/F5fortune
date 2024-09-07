@@ -40,10 +40,6 @@ export default function Users() {
 
             const days = (parseInt(Math.round(Date.now()) / 1000) - parseInt(detailPackage.time_start)) // 1000 is second id JS date not used!
 
-
-          //  console.log(days)
-
-
             if (days < time) {
                 dispatch(setRunningDays(0))
             } else {

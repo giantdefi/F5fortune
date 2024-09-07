@@ -34,6 +34,8 @@ export default function Users() {
     }, [])
 
    const handleBuyPackage = (item) => {
+    
+    if(!isActive) {
        dispatch(setPlaySound('error'))
        dispatch(setSelectedPackage(item))
        if(parseFloat(e_wallet) < parseInt(item.package_value)){
@@ -41,6 +43,18 @@ export default function Users() {
        }else{
         dispatch(setModalConfirmBuyPackage(true))
        }
+
+     }else{
+        dispatch(setPlaySound('error'))
+        dispatch(setSelectedPackage(item))
+        if(parseFloat(r_wallet) < parseInt(item.package_value)){
+          dispatch(setModalToast({ type: 'error', title: "Request Fail!", message: "insufficient RWallet balance" }))
+        }else{
+         dispatch(setModalConfirmBuyPackage(true))
+        }
+
+     }
+     
       
     }
 
